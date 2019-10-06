@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Sat Oct 05 14:00:26 MDT 2019
  */
 
-package Vistas;
+package Views;
 
 import java.awt.*;
 import javax.swing.*;

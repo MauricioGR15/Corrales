@@ -24,7 +24,7 @@ create table CRIAS(
 	cria_id int unique,
 	cria_fechaL date not null,
 	cria_fechaS date,
-	cria_salud tinyint not null,
+	cria_salud char(1) not null,
 	corral_no int not null,
 
 	primary key (cria_id),
@@ -53,14 +53,13 @@ create table DIETAS(
 	)
 
 create table CLASIFICACIONES(
-	clas_id varchar(10) not null, 
 	clas_peso smallint not null,
 	clas_colorMusculo varchar(20) not null,
 	clas_cantGrasa smallint not null,
 	clas_grasCobertura tinyint not null,
 	cria_id int not null, 
 
-	primary key(clas_id,cria_id),
+	primary key(cria_id),
 	constraint FK_CLAS foreign key (cria_id) references CRIAS(cria_id)
 	)
 
@@ -101,6 +100,7 @@ drop database CorralesV2
 
 alter table CLASIFICACIONES add constraint CHK_Peso check (clas_peso < 1500)
 alter table CLASIFICACIONES add constraint CHK_CantGrasa check (clas_cantGrasa < 1500)
+alter table CORRALES add constraint CHK_Capacidad check (corral_capacidad < 5000)
 
 
 

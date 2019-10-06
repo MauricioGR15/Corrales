@@ -1,28 +1,32 @@
-import Vistas.VistaPrincipal;
-
+import Controllers.*;
+import Models.Conexion;
+import Models.Modelo;
+import Views.*;
+import javax.swing.*;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import java.sql.*;
+import java.sql.Statement;
 
 public class App {
 
-	static VistaPrincipal view;
-	static Modelo model;
-	Conexion con;
-	
-	
 	public static void main(String[] args) throws SQLException, ClassNotFoundException{
 //		
-//		Statement conexion = Conexion.getConexion("MGR","Prueba","1433","UserSQL","sql");
-		view = new VistaPrincipal();
-		model = new Modelo();
-		Controlador controller = new Controlador(view,model);
+		Statement conexion = Conexion.getConexion("MGR","CorralesV2","1433","sa","sa");
+
+		VistaPrincipal principal = new VistaPrincipal();
+
+		Modelo model = new Modelo(conexion);
+
+		viewCrias crias = new viewCrias();
+		CriasController conCrias = new CriasController(crias,model);
+
+		viewCorrales corrales = new viewCorrales();
+		CorralController conCorrales = new CorralController(corrales,model);
 //		
 //
-//		if(conexion == null) {
-//			JOptionPane.showMessageDialog(null, "conexion no realizada","*********", JOptionPane.ERROR_MESSAGE);
-//			return;
-//		}
+		if(conexion == null) {
+			JOptionPane.showMessageDialog(null, "conexion no realizada","*********", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 //		
 //		int id = 1;
 //		String cad = "insert into productos values ('xdxd123','normal',15.50)";

@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Sat Oct 05 19:12:45 MDT 2019
  */
 
-package Vistas;
+package Views;
 
 import java.awt.*;
 import javax.swing.*;
@@ -12,8 +12,8 @@ import javax.swing.*;
  */
 public class VistaPrincipal extends JFrame {
 
-    private pnlCorrales pnl_corrales;
-    private pnlCrias pnl_crias;
+    private viewCorrales pnl_corrales;
+    private viewCrias pnl_crias;
 
     public VistaPrincipal() {
 
@@ -21,10 +21,8 @@ public class VistaPrincipal extends JFrame {
 
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-//            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-//            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+
         }
         catch (Exception e)
         {
@@ -47,10 +45,10 @@ public class VistaPrincipal extends JFrame {
         // Generated using JFormDesigner Evaluation license - unknown
         tabbed = new JTabbedPane();
 
-        //======== this ========
-        var contentPane = getContentPane();
-        contentPane.setLayout(new BorderLayout());
-        contentPane.add(tabbed, BorderLayout.CENTER);
+        //======== this =======
+        var contentP = getContentPane();
+        contentP.setLayout(new BorderLayout());
+        contentP.add(tabbed, BorderLayout.CENTER);
         pack();
         setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -59,15 +57,15 @@ public class VistaPrincipal extends JFrame {
 
 
     private void initContent(){
-        tabbed.add("CORRALES",pnl_corrales = new pnlCorrales());
-        tabbed.add("CRIAS",pnl_crias = new pnlCrias());
+        tabbed.add("CORRALES",pnl_corrales = new viewCorrales());
+        tabbed.add("CRIAS",pnl_crias = new viewCrias());
     }
 
-    public pnlCorrales getPnl_corrales() {
+    public viewCorrales getPnl_corrales() {
         return pnl_corrales;
     }
 
-    public pnlCrias getPnl_crias() {
+    public viewCrias getPnl_crias() {
         return pnl_crias;
     }
 
