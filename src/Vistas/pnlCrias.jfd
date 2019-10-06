@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 70, 0, 0, 0"
+			"$columnSpecs": "0, 70, 0, 0, 0, 0"
 			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
@@ -25,6 +25,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -35,12 +36,12 @@ new FormModel {
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaS_day"
+				name: "cb_fechaS_year"
 				"font": #SwingDerivedFont0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 1
-				"hAlign": 2
+				"hAlign": 5
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "cb_fechaS_month"
@@ -51,7 +52,7 @@ new FormModel {
 				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaS_year"
+				name: "cb_fechaS_day"
 				"font": #SwingDerivedFont0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
@@ -67,10 +68,9 @@ new FormModel {
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_saludable"
-				"text": "Saludable"
+				name: "r_riesgo"
+				"text": "En riesgo"
 				"$buttonGroup": new FormReference( "group" )
-				"selected": true
 				"font": #SwingDerivedFont0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
@@ -88,9 +88,10 @@ new FormModel {
 				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_riesgo"
-				"text": "En riesgo"
+				name: "r_saludable"
+				"text": "Saludable"
 				"$buttonGroup": new FormReference( "group" )
+				"selected": true
 				"font": #SwingDerivedFont0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
@@ -146,6 +147,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 5
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
@@ -162,6 +164,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 6
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_registrarCrias"

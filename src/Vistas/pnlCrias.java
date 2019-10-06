@@ -11,8 +11,23 @@ import javax.swing.*;
  * @author unknown
  */
 public class pnlCrias extends JPanel {
+
+    private String months[];
+    private int days[];
+    private String grasaC[] = new String[]{"Grasa de cobertura 0","Grasa de cobertura 1","Grasa de cobertura 2","Grasa de cobertura 3"};
+    private String colorM[] = new String[]{"Rojo","Muy rojo","Rojo oscuro","Rojo vivo"};
+    private int year=0;
+
     public pnlCrias() {
         initComponents();
+
+        months = new String[]{"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+        days = new int[]{31,(year%4==0 && (!(year%100==0)&& year%400==0))?28:29,31,30,31,30,31,31,30,31,30,31};
+        cbYears();
+        cbMonths();
+        cbDays();
+        cbColorM();
+        cbGrasaC();
     }
 
     private void initComponents() {
@@ -21,13 +36,13 @@ public class pnlCrias extends JPanel {
         label1 = new JLabel();
         tf_idCria = new JTextField();
         label2 = new JLabel();
-        cb_fechaS_day = new JComboBox();
-        cb_fechaS_month = new JComboBox();
         cb_fechaS_year = new JComboBox();
+        cb_fechaS_month = new JComboBox();
+        cb_fechaS_day = new JComboBox();
         label3 = new JLabel();
-        r_saludable = new JRadioButton();
-        r_enferma = new JRadioButton();
         r_riesgo = new JRadioButton();
+        r_enferma = new JRadioButton();
+        r_saludable = new JRadioButton();
         label4 = new JLabel();
         tf_peso = new JTextField();
         label5 = new JLabel();
@@ -39,13 +54,14 @@ public class pnlCrias extends JPanel {
         btn_registrarCrias = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-        0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
-        .BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.
-        red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
-        beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
+        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
+        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 75, 0, 0, 0};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 75, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
@@ -59,7 +75,7 @@ public class pnlCrias extends JPanel {
         //---- tf_idCria ----
         tf_idCria.setColumns(10);
         tf_idCria.setFont(new Font("Century Gothic", tf_idCria.getFont().getStyle(), tf_idCria.getFont().getSize()));
-        add(tf_idCria, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+        add(tf_idCria, new GridBagConstraints(1, 0, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -70,10 +86,10 @@ public class pnlCrias extends JPanel {
             GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- cb_fechaS_day ----
-        cb_fechaS_day.setFont(new Font("Century Gothic", cb_fechaS_day.getFont().getStyle(), cb_fechaS_day.getFont().getSize()));
-        add(cb_fechaS_day, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
+        //---- cb_fechaS_year ----
+        cb_fechaS_year.setFont(new Font("Century Gothic", cb_fechaS_year.getFont().getStyle(), cb_fechaS_year.getFont().getSize()));
+        add(cb_fechaS_year, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- cb_fechaS_month ----
@@ -82,9 +98,9 @@ public class pnlCrias extends JPanel {
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- cb_fechaS_year ----
-        cb_fechaS_year.setFont(new Font("Century Gothic", cb_fechaS_year.getFont().getStyle(), cb_fechaS_year.getFont().getSize()));
-        add(cb_fechaS_year, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+        //---- cb_fechaS_day ----
+        cb_fechaS_day.setFont(new Font("Century Gothic", cb_fechaS_day.getFont().getStyle(), cb_fechaS_day.getFont().getSize()));
+        add(cb_fechaS_day, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -95,11 +111,10 @@ public class pnlCrias extends JPanel {
             GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- r_saludable ----
-        r_saludable.setText("Saludable");
-        r_saludable.setSelected(true);
-        r_saludable.setFont(new Font("Century Gothic", r_saludable.getFont().getStyle(), r_saludable.getFont().getSize()));
-        add(r_saludable, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+        //---- r_riesgo ----
+        r_riesgo.setText("En riesgo");
+        r_riesgo.setFont(new Font("Century Gothic", r_riesgo.getFont().getStyle(), r_riesgo.getFont().getSize()));
+        add(r_riesgo, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -110,10 +125,11 @@ public class pnlCrias extends JPanel {
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- r_riesgo ----
-        r_riesgo.setText("En riesgo");
-        r_riesgo.setFont(new Font("Century Gothic", r_riesgo.getFont().getStyle(), r_riesgo.getFont().getSize()));
-        add(r_riesgo, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
+        //---- r_saludable ----
+        r_saludable.setText("Saludable");
+        r_saludable.setSelected(true);
+        r_saludable.setFont(new Font("Century Gothic", r_saludable.getFont().getStyle(), r_saludable.getFont().getSize()));
+        add(r_saludable, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -154,7 +170,7 @@ public class pnlCrias extends JPanel {
 
         //---- cb_colorM ----
         cb_colorM.setFont(new Font("Century Gothic", cb_colorM.getFont().getStyle(), cb_colorM.getFont().getSize()));
-        add(cb_colorM, new GridBagConstraints(1, 5, 1, 1, 0.0, 0.0,
+        add(cb_colorM, new GridBagConstraints(1, 5, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -167,7 +183,7 @@ public class pnlCrias extends JPanel {
 
         //---- cb_grasaC ----
         cb_grasaC.setFont(new Font("Century Gothic", cb_grasaC.getFont().getStyle(), cb_grasaC.getFont().getSize()));
-        add(cb_grasaC, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0,
+        add(cb_grasaC, new GridBagConstraints(1, 6, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -180,9 +196,9 @@ public class pnlCrias extends JPanel {
 
         //---- group ----
         var group = new ButtonGroup();
-        group.add(r_saludable);
-        group.add(r_enferma);
         group.add(r_riesgo);
+        group.add(r_enferma);
+        group.add(r_saludable);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -191,13 +207,13 @@ public class pnlCrias extends JPanel {
     private JLabel label1;
     private JTextField tf_idCria;
     private JLabel label2;
-    private JComboBox cb_fechaS_day;
-    private JComboBox cb_fechaS_month;
     private JComboBox cb_fechaS_year;
+    private JComboBox cb_fechaS_month;
+    private JComboBox cb_fechaS_day;
     private JLabel label3;
-    private JRadioButton r_saludable;
-    private JRadioButton r_enferma;
     private JRadioButton r_riesgo;
+    private JRadioButton r_enferma;
+    private JRadioButton r_saludable;
     private JLabel label4;
     private JTextField tf_peso;
     private JLabel label5;
@@ -208,4 +224,41 @@ public class pnlCrias extends JPanel {
     private JComboBox cb_grasaC;
     private JButton btn_registrarCrias;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+
+    public void cbYears(){
+        cb_fechaS_year.addItem("AÑO");
+        for(int i=1980; i<2100; i++)
+            cb_fechaS_year.addItem(i);
+    }
+
+    public void cbMonths(){
+        cb_fechaS_month.addItem("MES");
+        for (int i = 0; i< months.length; i++)
+            cb_fechaS_month.addItem(months[i]);
+    }
+
+    public void cbDays(){
+//        cb_fechaS_month.setSelectedIndex(2);
+        cb_fechaS_day.addItem("DÍA");
+        if(cb_fechaS_month.getSelectedIndex() == 0)
+            return;
+        year = (int)cb_fechaS_year.getSelectedIndex();
+        for(int i=1; i<days[cb_fechaS_month.getSelectedIndex()-1]; i++)
+            cb_fechaS_day.addItem(i);
+    }
+
+    public void cbColorM(){
+        cb_colorM.addItem("Seleccione");
+        for (int i=0 ; i<colorM.length; i++)
+            cb_colorM.addItem(colorM[i]);
+    }
+
+    public void  cbGrasaC(){
+        cb_grasaC.addItem("Seleccione");
+        for (int i=0 ; i<grasaC.length; i++)
+            cb_grasaC.addItem(grasaC[i]);
+    }
+
+
 }

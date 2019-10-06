@@ -13,6 +13,7 @@ import javax.swing.*;
 public class pnlCorrales extends JPanel {
     public pnlCorrales() {
         initComponents();
+        cbType();
     }
 
     public JTextField getTf_noCorral() {
@@ -116,4 +117,11 @@ public class pnlCorrales extends JPanel {
     private JTextField tf_capacity;
     private JButton btn_regCorral;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    public void cbType(){
+        cb_type.addItem("Seleccione");
+        cb_type.addItem("Saludables");
+        cb_type.addItem("Enfermas");
+    }
+
 }

@@ -16,6 +16,21 @@ public class VistaPrincipal extends JFrame {
     private pnlCrias pnl_crias;
 
     public VistaPrincipal() {
+
+        try{
+
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JDialog.setDefaultLookAndFeelDecorated(true);
+//            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+//            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
         setTitle("Terneras");
 //        setSize(500,500);
 //        setResizable(false);
