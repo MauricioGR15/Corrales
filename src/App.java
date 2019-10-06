@@ -1,10 +1,12 @@
+import Vistas.VistaPrincipal;
+
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
 public class App {
 
-	static Vista view;
+	static VistaPrincipal view;
 	static Modelo model;
 	Conexion con;
 	
@@ -12,7 +14,7 @@ public class App {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException{
 //		
 //		Statement conexion = Conexion.getConexion("MGR","Prueba","1433","UserSQL","sql");
-		view = new Vista();
+		view = new VistaPrincipal();
 		model = new Modelo();
 		Controlador controller = new Controlador(view,model);
 //		

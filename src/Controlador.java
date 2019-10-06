@@ -1,21 +1,21 @@
+import Vistas.VistaPrincipal;
 
 public class Controlador {
 	
 	
-	Vista view ;
+	VistaPrincipal view ;
 	Modelo model;
 	
-	public Controlador(Vista vista, Modelo modelo) {
+	public Controlador(VistaPrincipal vista, Modelo modelo) {
 		view = vista;
 		model = modelo;
 	}
 	
-	public void hazEscuchadores() {
-		view.getPnlCorrales().
+
 		
 		
 	}
 	
 	
 
-}
+
