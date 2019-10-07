@@ -4,14 +4,14 @@
 
 package Views;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author unknown
  */
-public class pnlCorrales extends JPanel {
-    public pnlCorrales() {
+public class viewCorrales extends JPanel {
+    public viewCorrales() {
         initComponents();
         cbType();
     }

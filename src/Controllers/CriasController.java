@@ -1,7 +1,6 @@
 package Controllers;
 
 import Models.Modelo;
-import Views.viewCorrales;
 import Views.viewCrias;
 
 public class CriasController {

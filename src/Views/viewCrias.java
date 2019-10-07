@@ -4,13 +4,13 @@
 
 package Views;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author unknown
  */
-public class pnlCrias extends JPanel {
+public class viewCrias extends JPanel {
 
     private String months[];
     private int days[];
@@ -18,7 +18,7 @@ public class pnlCrias extends JPanel {
     private String colorM[] = new String[]{"Rojo","Muy rojo","Rojo oscuro","Rojo vivo"};
     private int year=0;
 
-    public pnlCrias() {
+    public viewCrias() {
         initComponents();
 
         months = new String[]{"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
@@ -54,12 +54,13 @@ public class pnlCrias extends JPanel {
         btn_registrarCrias = new JButton();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
-        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
-        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
-        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
-        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax .
+        swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border
+        . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg"
+        , java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder
+        () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java
+        . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException
+        ( ) ;} } );
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 75, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -195,10 +196,11 @@ public class pnlCrias extends JPanel {
             new Insets(0, 0, 0, 5), 0, 0));
 
         //---- group ----
-        var group = new ButtonGroup();
-        group.add(r_riesgo);
-        group.add(r_enferma);
-        group.add(r_saludable);
+//        var group = new ButtonGroup();
+        var grupo = new ButtonGroup();
+        grupo.add(r_riesgo);
+        grupo.add(r_enferma);
+        grupo.add(r_saludable);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -258,6 +260,54 @@ public class pnlCrias extends JPanel {
         cb_grasaC.addItem("Seleccione");
         for (int i=0 ; i<grasaC.length; i++)
             cb_grasaC.addItem(grasaC[i]);
+    }
+
+    public JTextField getTf_idCria() {
+        return tf_idCria;
+    }
+
+    public JComboBox getCb_fechaS_year() {
+        return cb_fechaS_year;
+    }
+
+    public JComboBox getCb_fechaS_month() {
+        return cb_fechaS_month;
+    }
+
+    public JComboBox getCb_fechaS_day() {
+        return cb_fechaS_day;
+    }
+
+    public JRadioButton getR_riesgo() {
+        return r_riesgo;
+    }
+
+    public JRadioButton getR_enferma() {
+        return r_enferma;
+    }
+
+    public JRadioButton getR_saludable() {
+        return r_saludable;
+    }
+
+    public JTextField getTf_peso() {
+        return tf_peso;
+    }
+
+    public JTextField getTf_cantG() {
+        return tf_cantG;
+    }
+
+    public JComboBox getCb_colorM() {
+        return cb_colorM;
+    }
+
+    public JComboBox getCb_grasaC() {
+        return cb_grasaC;
+    }
+
+    public JButton getBtn_registrarCrias() {
+        return btn_registrarCrias;
     }
 
 

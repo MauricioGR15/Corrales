@@ -4,8 +4,8 @@
 
 package Views;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author unknown

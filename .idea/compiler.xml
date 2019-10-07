@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Helper" target="1.5" />
+      <module name="jaxb-api.main" target="1.8" />
+      <module name="jaxb-api.test" target="1.8" />
+      <module name="jaxbapi" target="1.5" />
+      <module name="SolucionaMiError.main" target="1.8" />
+      <module name="SolucionaMiError.test" target="1.8" />
+      <module name="Solution.main" target="1.8" />
+      <module name="Solution.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,6 +1,7 @@
 package Models;
 
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Modelo {
 

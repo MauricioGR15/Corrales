@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Modelo;
 import Views.viewCorrales;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
