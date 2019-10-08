@@ -31,7 +31,6 @@ public class CorralController implements ActionListener, FocusListener, ItemList
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        System.out.println("Entro");
         if(evt.getSource() == view.getBtn_regCorral()){
             int idCorral = Integer.parseInt(view.getTf_noCorral().getText());
             int cap = Integer.parseInt(view.getTf_capacity().getText());
@@ -57,14 +56,12 @@ public class CorralController implements ActionListener, FocusListener, ItemList
 
     @Override
     public void focusGained(FocusEvent evt) {
-        System.out.println("Entro");
         JTextField aux = (JTextField) evt.getSource();
         aux.selectAll();
     }
 
     @Override
     public void focusLost(FocusEvent evt) {
-        System.out.println("Entro");
         JTextField aux = (JTextField) evt.getSource();
         if(aux.getText().isEmpty()){
             aux.setBorder(BorderFactory.createLineBorder(Color.red));

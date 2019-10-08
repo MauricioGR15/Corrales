@@ -5,8 +5,6 @@ import Controllers.CriasController;
 import Models.Conexion;
 import Models.Modelo;
 import Views.VistaPrincipal;
-import Views.viewCorrales;
-import Views.viewCrias;
 import javax.swing.*;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,11 +19,8 @@ public class App {
 
 		Modelo model = new Modelo(conexion);
 
-		viewCrias crias = new viewCrias();
-		CriasController conCrias = new CriasController(crias,model);
-
-		viewCorrales corrales = new viewCorrales();
-		CorralController conCorrales = new CorralController(corrales,model);
+		CriasController conCrias = new CriasController(principal.getPnl_crias(),model);
+		CorralController conCorrales = new CorralController(principal.getPnl_corrales(),model);
 
 		if(conexion == null) {
 			JOptionPane.showMessageDialog(null, "conexion no realizada","*********", JOptionPane.ERROR_MESSAGE);
@@ -35,7 +30,6 @@ public class App {
 		
 //		JOptionPane.showMessageDialog(null, "Se realizo la conexion");
 
-//		Conexion.closeConexion();
 	}
 
 }

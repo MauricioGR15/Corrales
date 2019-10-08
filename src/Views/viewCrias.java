@@ -22,7 +22,7 @@ public class viewCrias extends JPanel {
         initComponents();
 
         months = new String[]{"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
-        days = new int[]{31,(year%4==0 && (!(year%100==0)&& year%400==0))?28:29,31,30,31,30,31,31,30,31,30,31};
+        days = new int[]{31,(year%4==0 && (!(year%100==0) && year%400==0))?28:29,31,30,31,30,31,31,30,31,30,31};
         cbYears();
         cbMonths();
         cbDays();
@@ -253,13 +253,17 @@ public class viewCrias extends JPanel {
     }
 
     public void cbDays(){
-//        cb_fechaS_month.setSelectedIndex(2);
+        cb_fechaS_day.removeAllItems();
         cb_fechaS_day.addItem("DÍA");
+        if(cb_fechaS_year.getSelectedIndex() == 0 && cb_fechaS_month.getSelectedIndex() == 0)
+            return;
         if(cb_fechaS_month.getSelectedIndex() == 0)
             return;
-        year = (int)cb_fechaS_year.getSelectedIndex();
-        for(int i=1; i<days[cb_fechaS_month.getSelectedIndex()-1]; i++)
+        year = (int)cb_fechaS_year.getSelectedItem();
+        for(int i=1; i<=days[cb_fechaS_month.getSelectedIndex()-1]; i++) {
+            System.out.println(cb_fechaS_month.getSelectedIndex()-1);
             cb_fechaS_day.addItem(i);
+        }
     }
 
     public void cbColorM(){

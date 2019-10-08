@@ -55,7 +55,14 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     }
 
     @Override
-    public void itemStateChanged(ItemEvent e) {
+    public void itemStateChanged(ItemEvent evt) {
+        if(evt.getStateChange()!=ItemEvent.SELECTED)
+            return;
+        if(evt.getSource() == view.getCb_fechaS_month()){
+            view.cbDays();
+            return;
+        }
+
 
     }
 }
