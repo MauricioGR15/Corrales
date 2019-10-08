@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="jaxb-api" external.linked.project.path="$MODULE_DIR$/../../jaxb-api" external.root.project.path="$MODULE_DIR$/../../jaxb-api" external.system.id="GRADLE" external.system.module.group="javax.xml.bind" external.system.module.version="2.3.0" type="JAVA_MODULE" version="4">
   <component name="ExternalSystem" linkedProjectPath="$MODULE_DIR$/../../jaxb-api" rootProjectPath="$MODULE_DIR$/../../jaxb-api" />
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../jaxb-api" />
+    <content url="file://$MODULE_DIR$/../../jaxb-api">
+      <excludeFolder url="file://$MODULE_DIR$/../../jaxb-api/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../jaxb-api/build" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

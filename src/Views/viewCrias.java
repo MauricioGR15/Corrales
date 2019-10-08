@@ -51,20 +51,21 @@ public class viewCrias extends JPanel {
         cb_colorM = new JComboBox();
         label7 = new JLabel();
         cb_grasaC = new JComboBox();
+        label8 = new JLabel();
+        cb_dieta = new JComboBox();
         btn_registrarCrias = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax .
-        swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border
-        . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg"
-        , java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder
-        () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java
-        . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException
-        ( ) ;} } );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+        ( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+        . TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 75, 0, 0, 0, 0};
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- label1 ----
         label1.setText("ID Ternera:");
@@ -188,19 +189,28 @@ public class viewCrias extends JPanel {
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
+        //---- label8 ----
+        label8.setText("Dieta:");
+        label8.setFont(new Font("Century Gothic", label8.getFont().getStyle(), label8.getFont().getSize()));
+        add(label8, new GridBagConstraints(0, 7, 1, 1, 0.0, 0.0,
+            GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 5, 5), 0, 0));
+        add(cb_dieta, new GridBagConstraints(1, 7, 1, 1, 0.0, 0.0,
+            GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 5, 5), 0, 0));
+
         //---- btn_registrarCrias ----
         btn_registrarCrias.setText("Registrar");
         btn_registrarCrias.setFont(new Font("Century Gothic", btn_registrarCrias.getFont().getStyle(), btn_registrarCrias.getFont().getSize()));
         add(btn_registrarCrias, new GridBagConstraints(1, 8, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 0, 5), 0, 0));
+            new Insets(0, 0, 5, 5), 0, 0));
 
         //---- group ----
-//        var group = new ButtonGroup();
-        var grupo = new ButtonGroup();
-        grupo.add(r_riesgo);
-        grupo.add(r_enferma);
-        grupo.add(r_saludable);
+        var group = new ButtonGroup();
+        group.add(r_riesgo);
+        group.add(r_enferma);
+        group.add(r_saludable);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -224,6 +234,8 @@ public class viewCrias extends JPanel {
     private JComboBox cb_colorM;
     private JLabel label7;
     private JComboBox cb_grasaC;
+    private JLabel label8;
+    private JComboBox cb_dieta;
     private JButton btn_registrarCrias;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 

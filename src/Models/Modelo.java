@@ -10,6 +10,7 @@ public class Modelo {
 
     public Modelo(Statement con){
         conection = con;
+
     }
 
     public void sp_corrales(int noCorral, short type, int capacity) throws SQLException {
@@ -26,5 +27,7 @@ public class Modelo {
         cad ="exec InsertClas @id ="+noCria+", @peso = '"+colorM+"', @cantGrasa ="+cantG+", @grasaCobertura ="+grasaC;
         conection.execute(cad);
     }
+
+
 
 }
