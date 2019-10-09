@@ -27,8 +27,16 @@ public class App {
 			return;
 		}
 
-		
-//		JOptionPane.showMessageDialog(null, "Se realizo la conexion");
+		String dieta1 = "insert into DIETAS values ('DIETA01',100,'Heno de alfalfa')";
+		String dieta2 = "insert into DIETAS values ('DIETA02',150,'Ensilaje')";
+		String dieta3 = "insert into DIETAS values ('DIETA03',200,'Pasto')";
+		String dieta4 = "insert into DIETAS values ('DIETA04',85,'Maíz')";
+		conexion.execute(dieta1);
+		conexion.execute(dieta2);
+		conexion.execute(dieta3);
+		conexion.execute(dieta4);
+
+		JOptionPane.showMessageDialog(null, "Se realizo la conexion");
 
 	}
 

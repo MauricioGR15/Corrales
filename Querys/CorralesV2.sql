@@ -20,15 +20,25 @@ create table TRATAMIENTOS(
 	primary key (trat_id)
 	)
 
+create table DIETAS(
+	dieta_id varchar(10),
+	dieta_cant int not null,
+	dieta_tipo varchar(30) not null,
+
+	primary key (dieta_id)
+	)
+
 create table CRIAS(
 	cria_id int unique,
 	cria_fechaL date not null,
 	cria_fechaS date,
 	cria_salud char(1) not null,
 	corral_no int not null,
+	dieta_id varchar(10) not null
 
 	primary key (cria_id),
-	foreign key (corral_no) references CORRALES(corral_no)
+	foreign key (corral_no) references CORRALES(corral_no),
+	foreign key (dieta_id) references DIETAS(dieta_id)
 	)
 
 create table ENFERMAS(
@@ -42,15 +52,7 @@ create table ENFERMAS(
 	foreign key (trat_id) references TRATAMIENTOS(trat_id)
 	)
 
-create table DIETAS(
-	dieta_id varchar(10),
-	dieta_cant int not null,
-	dieta_tipo varchar(30) not null,
-	cria_id int,
 
-	primary key (dieta_id, cria_id),
-	constraint FK_Dietas foreign key (cria_id) references CRIAS(cria_id)
-	)
 
 create table CLASIFICACIONES(
 	clas_peso smallint not null,
