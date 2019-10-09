@@ -5,7 +5,9 @@ import java.sql.Statement;
 
 public class Modelo {
 
-    Statement conection;
+
+
+    private Statement conection;
     String cad;
 
     public Modelo(Statement con){
@@ -18,8 +20,8 @@ public class Modelo {
         conection.execute(cad);
     }
 
-    public void sp_crias(int noCria, short health, int date, int noCorral) throws  SQLException{
-        cad ="exec InsertCrias @id ="+noCria+", @salud='"+health+"', @fechaL = "+date+", @corralNo ="+noCorral;
+    public void sp_crias(int noCria, short health, int date, int noCorral, String dieta) throws  SQLException{
+        cad ="exec InsertCrias @id ="+noCria+", @salud='"+health+"', @fechaL = "+date+", @corralNo ="+noCorral+", @dietaID ="+dieta;
         conection.execute(cad);
     }
 
@@ -28,6 +30,13 @@ public class Modelo {
         conection.execute(cad);
     }
 
+    public void sp_select_noCorral() throws  SQLException{
+        cad ="exec Select_noCorral";
+        conection.execute(cad);
+    }
 
+    public Statement getConection() {
+        return conection;
+    }
 
 }

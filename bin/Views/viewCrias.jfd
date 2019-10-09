@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 70, 0, 0, 0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+			"$columnSpecs": "0, 70, 0, 0"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignTop": true
@@ -39,7 +39,7 @@ new FormModel {
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaS_year"
+				name: "cb_fechaL_year"
 				"font": #SwingDerivedFont0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -50,7 +50,7 @@ new FormModel {
 				"hAlign": 5
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaS_month"
+				name: "cb_fechaL_month"
 				"font": #SwingDerivedFont0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -58,10 +58,10 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
 				"gridy": 1
-				"hAlign": 2
+				"hAlign": 5
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaS_day"
+				name: "cb_fechaL_day"
 				"font": #SwingDerivedFont0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -69,7 +69,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
 				"gridy": 1
-				"hAlign": 2
+				"hAlign": 5
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
@@ -90,7 +90,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 2
-				"hAlign": 2
+				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "r_enferma"
@@ -103,7 +103,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
 				"gridy": 2
-				"hAlign": 2
+				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "r_saludable"
@@ -117,86 +117,27 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 3
 				"gridy": 2
-				"hAlign": 2
+				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label4"
-				"text": "Peso:"
+				name: "label9"
+				"text": "No de corral:"
 				"font": #SwingDerivedFont0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 3
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "tf_peso"
-				"columns": 5
+				name: "tf_noCorral"
+				"columns": 10
 				"font": #SwingDerivedFont0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
+				"hAlign": 2
 				"gridy": 3
-				"hAlign": 2
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label5"
-				"text": "Cantidad de grasa:"
-				"font": #SwingDerivedFont0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 4
-				"hAlign": 4
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "tf_cantG"
-				"columns": 5
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 4
-				"hAlign": 2
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label6"
-				"text": "Color de músculo:"
-				"font": #SwingDerivedFont0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 5
-				"hAlign": 4
-			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_colorM"
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 5
-				"hAlign": 2
-				"gridwidth": 2
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label7"
-				"text": "Grasa de cobertura:"
-				"font": #SwingDerivedFont0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 6
-				"hAlign": 4
-			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_grasaC"
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 6
-				"hAlign": 2
 				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -204,15 +145,16 @@ new FormModel {
 				"text": "Dieta:"
 				"font": #SwingDerivedFont0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 7
+				"gridy": 4
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "cb_dieta"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 7
+				"gridy": 4
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_registrarCrias"
@@ -223,17 +165,17 @@ new FormModel {
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 8
+				"gridy": 6
 				"gridwidth": 2
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 75, 25 )
-			"size": new java.awt.Dimension( 400, 300 )
+			"size": new java.awt.Dimension( 430, 320 )
 		} )
 		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
 			name: "group"
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 341 )
+			"location": new java.awt.Point( 15, 365 )
 		} )
 	}
 }

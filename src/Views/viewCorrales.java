@@ -128,7 +128,7 @@ public class viewCorrales extends JPanel {
     }
 
     public void msgCombo(){
-        JOptionPane.showMessageDialog(this,"Error","Seleccione una opción válida",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Seleccione una opcion válida en tipo de corral","ERROR",JOptionPane.ERROR_MESSAGE);
     }
 
 }

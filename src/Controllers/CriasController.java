@@ -19,19 +19,17 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     public void hazEscuchadores(){
         view.getBtn_registrarCrias().addActionListener(this);
 
-        view.getCb_colorM().addItemListener(this);
-        view.getCb_grasaC().addItemListener(this);
-        view.getCb_fechaS_day().addItemListener(this);
-        view.getCb_fechaS_month().addItemListener(this);
-        view.getCb_fechaS_year().addItemListener(this);
+        view.getCb_fechaL_day().addItemListener(this);
+        view.getCb_fechaL_month().addItemListener(this);
+        view.getCb_fechaL_year().addItemListener(this);
 
         view.getR_enferma().addActionListener(this);
         view.getR_riesgo().addActionListener(this);
         view.getR_saludable().addActionListener(this);
 
-        view.getTf_cantG().addFocusListener(this);
+
         view.getTf_idCria().addFocusListener(this);
-        view.getTf_peso().addFocusListener(this);
+
     }
 
 
@@ -58,7 +56,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     public void itemStateChanged(ItemEvent evt) {
         if(evt.getStateChange()!=ItemEvent.SELECTED)
             return;
-        if(evt.getSource() == view.getCb_fechaS_month()){
+        if(evt.getSource() == view.getCb_fechaL_month()){
             view.cbDays();
             return;
         }

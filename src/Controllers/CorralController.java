@@ -2,23 +2,28 @@ package Controllers;
 
 import Models.Modelo;
 import Views.viewCorrales;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.regex.Pattern;
 
 public class CorralController implements ActionListener, FocusListener, ItemListener{
 
-    viewCorrales view;
-    Modelo model;
-    byte type;
-    final String expresion = "[d]{9}";
+    private viewCorrales view;
+    private Modelo model;
+    private byte type;
+    private final String []EXPRESIONES = new String[]{"[0-9]{1,9}$","[0-9]{1,5}$"};
+    private int expr = 0;
+    private Border original;
 
     public CorralController(viewCorrales view, Modelo model){
         this.view = view;
         this.model = model;
         hazEscuchadores();
+        original = view.getTf_capacity().getBorder();
     }
 
     public void hazEscuchadores(){
@@ -63,24 +68,33 @@ public class CorralController implements ActionListener, FocusListener, ItemList
     @Override
     public void focusLost(FocusEvent evt) {
         JTextField aux = (JTextField) evt.getSource();
-        if(aux.getText().isEmpty()){
+
+        if(aux == view.getTf_capacity())
+            expr = 1;
+        else
+            expr = 0;
+
+        if(aux.getText().isEmpty() || !verifyExpression(aux.getText(),expr)
+                || (aux == view.getTf_capacity() && aux.getText().length() > 5
+                || aux == view.getTf_noCorral() && aux.getText().length() > 10)){
             aux.setBorder(BorderFactory.createLineBorder(Color.red));
             aux.requestFocus();
             return;
         }
-        if(verifyExpression(aux.getText())){
+        else{
+            aux.setBorder(original);
             aux.transferFocus();
         }
-
     }
 
-    public boolean verifyExpression(String cadena){
-        Pattern pat = Pattern.compile(expresion);
+    public boolean verifyExpression(String cadena, int expr){
+        Pattern pat = Pattern.compile(EXPRESIONES[expr]);
         return pat.matcher(cadena).find();
     }
 
     @Override
-    public void itemStateChanged(ItemEvent e) {
-        System.out.println("Cambio");
+    public void itemStateChanged(ItemEvent evt) {
+        if(evt.getStateChange()!=ItemEvent.SELECTED)
+            return;
     }
 }

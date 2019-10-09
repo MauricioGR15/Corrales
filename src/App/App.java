@@ -31,12 +31,12 @@ public class App {
 		String dieta2 = "insert into DIETAS values ('DIETA02',150,'Ensilaje')";
 		String dieta3 = "insert into DIETAS values ('DIETA03',200,'Pasto')";
 		String dieta4 = "insert into DIETAS values ('DIETA04',85,'Maíz')";
-		conexion.execute(dieta1);
-		conexion.execute(dieta2);
-		conexion.execute(dieta3);
-		conexion.execute(dieta4);
+//		conexion.execute(dieta1);
+//		conexion.execute(dieta2);
+//		conexion.execute(dieta3);
+//		conexion.execute(dieta4);
 
-		JOptionPane.showMessageDialog(null, "Se realizo la conexion");
+//		JOptionPane.showMessageDialog(null, "Se realizo la conexion");
 
 	}
 
