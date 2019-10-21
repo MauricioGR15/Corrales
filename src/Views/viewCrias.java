@@ -21,7 +21,7 @@ public class viewCrias extends JPanel {
         initComponents();
 
         months = new String[]{"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
-        days = new int[]{31,(year%4==0 && (!(year%100==0) && year%400==0))?28:29,31,30,31,30,31,31,30,31,30,31};
+        days = new int[]{31,28,31,30,31,30,31,31,30,31,30,31};
         dietas = new String[]{"Heno de alfalfa","Ensilaje","Pasto","Maíz"};
         cbYears();
         cbMonths();
@@ -191,12 +191,14 @@ public class viewCrias extends JPanel {
 
 
     public void cbYears(){
+        cb_fechaL_year.removeAllItems();
         cb_fechaL_year.addItem("AÑO");
         for(int i=2012; i<2100; i++)
             cb_fechaL_year.addItem(i);
     }
 
     public void cbMonths(){
+        cb_fechaL_month.removeAllItems();
         cb_fechaL_month.addItem("MES");
         for (int i = 0; i< months.length; i++)
             cb_fechaL_month.addItem(months[i]);
@@ -205,15 +207,13 @@ public class viewCrias extends JPanel {
     public void cbDays(){
         cb_fechaL_day.removeAllItems();
         cb_fechaL_day.addItem("DÍA");
-        if(cb_fechaL_year.getSelectedIndex() == 0 && cb_fechaL_month.getSelectedIndex() == 0)
-            return;
-        if(cb_fechaL_month.getSelectedIndex() == 0)
+        if(cb_fechaL_year.getSelectedIndex() == 0 || cb_fechaL_month.getSelectedIndex() == 0)
             return;
         year = (int) cb_fechaL_year.getSelectedItem();
-        for(int i = 1; i<=days[cb_fechaL_month.getSelectedIndex()-1]; i++) {
-            System.out.println(cb_fechaL_month.getSelectedIndex()-1);
+        for(int i = 1; i<=days[cb_fechaL_month.getSelectedIndex()-1]; i++)
             cb_fechaL_day.addItem(i);
-        }
+        if((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)))
+            cb_fechaL_day.addItem(29);
     }
 
     public void cbDietas(){
@@ -222,6 +222,7 @@ public class viewCrias extends JPanel {
             cb_dieta.addItem(dietas[i]);
 
     }
+
 
     public JTextField getTf_idCria() {
         return tf_idCria;

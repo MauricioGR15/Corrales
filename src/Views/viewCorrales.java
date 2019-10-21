@@ -127,8 +127,18 @@ public class viewCorrales extends JPanel {
         cb_type.addItem("Enfermas");
     }
 
-    public void msgCombo(){
-        JOptionPane.showMessageDialog(this,"Seleccione una opcion válida en tipo de corral","ERROR",JOptionPane.ERROR_MESSAGE);
+    public void resetComponents(){
+        tf_noCorral.setText("");
+        cb_type.setSelectedIndex(0);
+        tf_capacity.setText("");
+    }
+
+    public void msgError(String msg){
+        JOptionPane.showMessageDialog(this,msg,"ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void msgExito(){
+        JOptionPane.showMessageDialog(this,"Se ha registrado con éxito","CORRECTO",JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

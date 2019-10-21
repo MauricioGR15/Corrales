@@ -2,12 +2,11 @@ package Controllers;
 
 import Models.Modelo;
 import Views.viewCorrales;
-import jdk.swing.interop.SwingInterOpUtils;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 public class CorralController implements ActionListener, FocusListener, ItemListener{
@@ -41,13 +40,23 @@ public class CorralController implements ActionListener, FocusListener, ItemList
             int cap = Integer.parseInt(view.getTf_capacity().getText());
             if(checkType()){
                 byte t = type;
+                try {
+                    model.sp_corrales(idCorral,t,cap);
+                } catch (SQLException e) {
+                    view.msgError("Error al insertar");
+                    e.printStackTrace();
+                    view.resetComponents();
+                    return;
+                }
+                view.resetComponents();
+                view.msgExito();
             }
         }
     }
 
     private boolean checkType(){
         if(view.getCb_type().getSelectedIndex() == 0){
-            view.msgCombo();
+            view.msgError("Seleccione una opcion válida en tipo de corral");
             return false;
         }
         else{

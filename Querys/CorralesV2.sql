@@ -104,6 +104,7 @@ alter table CLASIFICACIONES add constraint CHK_Peso check (clas_peso < 1500)
 alter table CLASIFICACIONES add constraint CHK_CantGrasa check (clas_cantGrasa < 1500)
 alter table CORRALES add constraint CHK_Capacidad check (corral_capacidad < 5000)
 
+select * from DIETAS
 
 
 

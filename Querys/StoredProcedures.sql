@@ -7,7 +7,7 @@ create procedure InsertCrias
 	@corralNo int,
 	@dietaID varchar
 	as
-	insert into CRIAS (cria_id, cria_salud,cria_fechaL,corral_no) values (@id, @salud, @fechaL, @corralNo);
+	insert into CRIAS (cria_id, cria_salud,cria_fechaL,corral_no,dieta_id) values (@id, @salud, @fechaL, @corralNo,@dietaID);
 
 create procedure InsertCorrales
 	@no int, 
@@ -26,5 +26,6 @@ create procedure InsertClasificaciones
 	insert into CLASIFICACIONES values (@criaId, @peso,@colorMusc,@cantGrasa,@grasCobertura)
 
 
+create procedure Select_noCorral as select corral_no from CORRALES
 	
 
