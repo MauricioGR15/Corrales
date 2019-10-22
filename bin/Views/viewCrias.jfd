@@ -80,9 +80,10 @@ new FormModel {
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_riesgo"
-				"text": "En riesgo"
+				name: "r_saludable"
+				"text": "Saludable"
 				"$buttonGroup": new FormReference( "group" )
+				"selected": true
 				"font": #SwingDerivedFont0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -106,10 +107,9 @@ new FormModel {
 				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_saludable"
-				"text": "Saludable"
+				name: "r_riesgo"
+				"text": "En riesgo"
 				"$buttonGroup": new FormReference( "group" )
-				"selected": true
 				"font": #SwingDerivedFont0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true

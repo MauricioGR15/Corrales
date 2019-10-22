@@ -1,5 +1,6 @@
 package Controllers;
 
+import App.Routines;
 import Models.Modelo;
 import Views.viewCorrales;
 import javax.swing.*;
@@ -9,10 +10,13 @@ import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.regex.Pattern;
 
-public class CorralController implements ActionListener, FocusListener, ItemListener{
+import static App.Routines.*;
+
+public class CorralController implements ActionListener, FocusListener, ItemListener, KeyListener{
 
     private viewCorrales view;
     private Modelo model;
+    private Routines rut;
     private byte type;
     private final String []EXPRESIONES = new String[]{"[0-9]{1,9}$","[0-9]{1,5}$"};
     private int expr = 0;
@@ -21,6 +25,7 @@ public class CorralController implements ActionListener, FocusListener, ItemList
     public CorralController(viewCorrales view, Modelo model){
         this.view = view;
         this.model = model;
+        rut = new Routines();
         hazEscuchadores();
         original = view.getTf_capacity().getBorder();
     }
@@ -43,20 +48,20 @@ public class CorralController implements ActionListener, FocusListener, ItemList
                 try {
                     model.sp_corrales(idCorral,t,cap);
                 } catch (SQLException e) {
-                    view.msgError("Error al insertar");
+                    rut.msgError("Error al insertar");
                     e.printStackTrace();
                     view.resetComponents();
                     return;
                 }
                 view.resetComponents();
-                view.msgExito();
+                rut.msgExito();
             }
         }
     }
 
     private boolean checkType(){
         if(view.getCb_type().getSelectedIndex() == 0){
-            view.msgError("Seleccione una opcion válida en tipo de corral");
+            rut.msgError("Seleccione una opcion válida en tipo de corral");
             return false;
         }
         else{
@@ -83,7 +88,7 @@ public class CorralController implements ActionListener, FocusListener, ItemList
         else
             expr = 0;
 
-        if(aux.getText().isEmpty() || !verifyExpression(aux.getText(),expr)
+        if(aux.getText().isEmpty() || !rut.verifyExpression(aux.getText(),EXPRESIONES[expr])
                 || (aux == view.getTf_capacity() && aux.getText().length() > 5
                 || aux == view.getTf_noCorral() && aux.getText().length() > 10)){
             aux.setBorder(BorderFactory.createLineBorder(Color.red));
@@ -96,14 +101,30 @@ public class CorralController implements ActionListener, FocusListener, ItemList
         }
     }
 
-    public boolean verifyExpression(String cadena, int expr){
-        Pattern pat = Pattern.compile(EXPRESIONES[expr]);
-        return pat.matcher(cadena).find();
-    }
-
     @Override
     public void itemStateChanged(ItemEvent evt) {
         if(evt.getStateChange()!=ItemEvent.SELECTED)
             return;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent evt) {
+        JTextField aux = (JTextField) evt.getSource();
+        if(aux == view.getTf_noCorral()){
+           rut.soundAlert(evt,aux,10);
+           return;
+        }
+        if(aux == view.getTf_capacity())
+            rut.soundAlert(evt,aux,5);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

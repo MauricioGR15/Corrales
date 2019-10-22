@@ -133,12 +133,5 @@ public class viewCorrales extends JPanel {
         tf_capacity.setText("");
     }
 
-    public void msgError(String msg){
-        JOptionPane.showMessageDialog(this,msg,"ERROR",JOptionPane.ERROR_MESSAGE);
-    }
-
-    public void msgExito(){
-        JOptionPane.showMessageDialog(this,"Se ha registrado con éxito","CORRECTO",JOptionPane.INFORMATION_MESSAGE);
-    }
 
 }

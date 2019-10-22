@@ -2,7 +2,7 @@
 
 create procedure InsertCrias 
 	@id int,
-	@salud tinyint,
+	@salud char,
 	@fechaL date,
 	@corralNo int,
 	@dietaID varchar

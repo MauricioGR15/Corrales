@@ -20,9 +20,16 @@ public class Modelo {
         conection.execute(cad);
     }
 
-    public void sp_crias(int noCria, short health, int date, int noCorral, String dieta) throws  SQLException{
-        cad ="exec InsertCrias @id ="+noCria+", @salud='"+health+"', @fechaL = "+date+", @corralNo ="+noCorral+", @dietaID ="+dieta;
+    public void sp_crias(int noCria, char health, String date,int noCorral, String dieta) throws  SQLException{
+        cad ="exec InsertCrias @id ="+noCria+", @salud='"+health+"', @fechaL = '"+date+"' , @corralNo ="+noCorral+", @dietaID = '"+dieta+"'";
         conection.execute(cad);
+    }
+
+    public void insertCrias(int noCria, char health, String date,int noCorral, String dieta) throws  SQLException{
+        cad = "insert into crias (cria_id,cria_salud,cria_fechaL,corral_no,dieta_id) values (";
+        String cad2 = cad + noCria + ",'"+health+"','"+date+"',"+noCorral+",'"+dieta+"')";
+        conection.execute(cad2);
+
     }
 
     public void sp_clasificacion(int noCria, short peso, String colorM, short cantG, short grasaC) throws SQLException {

@@ -41,9 +41,9 @@ public class viewCrias extends JPanel {
         cb_fechaL_month = new JComboBox();
         cb_fechaL_day = new JComboBox();
         label3 = new JLabel();
-        r_riesgo = new JRadioButton();
-        r_enferma = new JRadioButton();
         r_saludable = new JRadioButton();
+        r_enferma = new JRadioButton();
+        r_riesgo = new JRadioButton();
         label9 = new JLabel();
         tf_noCorral = new JTextField();
         label8 = new JLabel();
@@ -51,13 +51,13 @@ public class viewCrias extends JPanel {
         btn_registrarCrias = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
-        swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
-        .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
-        ,java.awt.Font.BOLD,12),java.awt.Color.red), getBorder
-        ())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
-        .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
-        ();}});
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+        javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax
+        . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+        .awt .Font ("D\u0069al\u006fg" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans.
+        PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062or\u0064er" .
+        equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 75, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
@@ -109,10 +109,11 @@ public class viewCrias extends JPanel {
             GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- r_riesgo ----
-        r_riesgo.setText("En riesgo");
-        r_riesgo.setFont(new Font("Century Gothic", r_riesgo.getFont().getStyle(), r_riesgo.getFont().getSize()));
-        add(r_riesgo, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+        //---- r_saludable ----
+        r_saludable.setText("Saludable");
+        r_saludable.setSelected(true);
+        r_saludable.setFont(new Font("Century Gothic", r_saludable.getFont().getStyle(), r_saludable.getFont().getSize()));
+        add(r_saludable, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -123,11 +124,10 @@ public class viewCrias extends JPanel {
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
-        //---- r_saludable ----
-        r_saludable.setText("Saludable");
-        r_saludable.setSelected(true);
-        r_saludable.setFont(new Font("Century Gothic", r_saludable.getFont().getStyle(), r_saludable.getFont().getSize()));
-        add(r_saludable, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
+        //---- r_riesgo ----
+        r_riesgo.setText("En riesgo");
+        r_riesgo.setFont(new Font("Century Gothic", r_riesgo.getFont().getStyle(), r_riesgo.getFont().getSize()));
+        add(r_riesgo, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
 
@@ -164,9 +164,9 @@ public class viewCrias extends JPanel {
 
         //---- group ----
         var group = new ButtonGroup();
-        group.add(r_riesgo);
-        group.add(r_enferma);
         group.add(r_saludable);
+        group.add(r_enferma);
+        group.add(r_riesgo);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -179,9 +179,9 @@ public class viewCrias extends JPanel {
     private JComboBox cb_fechaL_month;
     private JComboBox cb_fechaL_day;
     private JLabel label3;
-    private JRadioButton r_riesgo;
-    private JRadioButton r_enferma;
     private JRadioButton r_saludable;
+    private JRadioButton r_enferma;
+    private JRadioButton r_riesgo;
     private JLabel label9;
     private JTextField tf_noCorral;
     private JLabel label8;
@@ -223,6 +223,14 @@ public class viewCrias extends JPanel {
 
     }
 
+    public void resetComponents(){
+        tf_idCria.setText("");
+        tf_noCorral.setText("");
+        cbYears();
+        cbMonths();
+        cbDays();
+        cb_dieta.setSelectedIndex(0);
+    }
 
     public JTextField getTf_idCria() {
         return tf_idCria;
