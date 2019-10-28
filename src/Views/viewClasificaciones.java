@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * @author unknown
+ * @author Mauricio Garcia
  */
 public class viewClasificaciones extends JPanel {
 
@@ -23,9 +23,7 @@ public class viewClasificaciones extends JPanel {
         initComponents();
         fillSpinner();
         cbColorM();
-
     }
-
 
     private void fillSpinner(){
         spinnerGraCob.setModel(spinnerModel);
@@ -39,7 +37,28 @@ public class viewClasificaciones extends JPanel {
     }
 
 
-
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - unknown
+    private JLabel label2;
+    private JLabel label1;
+    private JTextField tf_idCria;
+    private JLabel label3;
+    private JTextField tf_corral;
+    private JLabel label5;
+    private JTextField tf_salud;
+    private JButton btn_sinClas;
+    private JButton btn_buscar;
+    private JLabel label6;
+    private JLabel label7;
+    private JTextField tf_peso;
+    private JLabel label8;
+    private JTextField tf_cantGra;
+    private JLabel label9;
+    private JComboBox cb_colorMusc;
+    private JLabel label4;
+    private JSpinner spinnerGraCob;
+    private JButton btn_clasificar;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -51,6 +70,7 @@ public class viewClasificaciones extends JPanel {
         tf_corral = new JTextField();
         label5 = new JLabel();
         tf_salud = new JTextField();
+        btn_sinClas = new JButton();
         btn_buscar = new JButton();
         label6 = new JLabel();
         label7 = new JLabel();
@@ -64,13 +84,13 @@ public class viewClasificaciones extends JPanel {
         btn_clasificar = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-        . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing
-        .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-        Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-        ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-        public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName (
-        ) ) )throw new RuntimeException( ) ;} } );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new
+        javax.swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax
+        .swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java
+        .awt.Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt
+        .Color.red), getBorder())); addPropertyChangeListener(new java.beans.
+        PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072".
+        equals(e.getPropertyName()))throw new RuntimeException();}});
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
@@ -93,6 +113,7 @@ public class viewClasificaciones extends JPanel {
         //---- tf_idCria ----
         tf_idCria.setColumns(10);
         tf_idCria.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        tf_idCria.setText("0");
         add(tf_idCria, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
@@ -108,6 +129,7 @@ public class viewClasificaciones extends JPanel {
         //---- tf_corral ----
         tf_corral.setColumns(10);
         tf_corral.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        tf_corral.setEditable(false);
         add(tf_corral, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
@@ -123,14 +145,22 @@ public class viewClasificaciones extends JPanel {
         //---- tf_salud ----
         tf_salud.setColumns(15);
         tf_salud.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        tf_salud.setEditable(false);
         add(tf_salud, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
 
+        //---- btn_sinClas ----
+        btn_sinClas.setText("Crias sin clasificar");
+        btn_sinClas.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        add(btn_sinClas, new GridBagConstraints(0, 5, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
+
         //---- btn_buscar ----
         btn_buscar.setText("Buscar");
         btn_buscar.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-        add(btn_buscar, new GridBagConstraints(0, 5, 2, 1, 0.0, 0.0,
+        add(btn_buscar, new GridBagConstraints(1, 5, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
 
@@ -152,6 +182,7 @@ public class viewClasificaciones extends JPanel {
         //---- tf_peso ----
         tf_peso.setColumns(5);
         tf_peso.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        tf_peso.setText("0");
         add(tf_peso, new GridBagConstraints(1, 7, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
@@ -167,6 +198,7 @@ public class viewClasificaciones extends JPanel {
         //---- tf_cantGra ----
         tf_cantGra.setColumns(5);
         tf_cantGra.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        tf_cantGra.setText("0");
         add(tf_cantGra, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
@@ -207,25 +239,45 @@ public class viewClasificaciones extends JPanel {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
-    private JLabel label2;
-    private JLabel label1;
-    private JTextField tf_idCria;
-    private JLabel label3;
-    private JTextField tf_corral;
-    private JLabel label5;
-    private JTextField tf_salud;
-    private JButton btn_buscar;
-    private JLabel label6;
-    private JLabel label7;
-    private JTextField tf_peso;
-    private JLabel label8;
-    private JTextField tf_cantGra;
-    private JLabel label9;
-    private JComboBox cb_colorMusc;
-    private JLabel label4;
-    private JSpinner spinnerGraCob;
-    private JButton btn_clasificar;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    public JTextField getTf_idCria() {
+        return tf_idCria;
+    }
+
+    public JTextField getTf_corral() {
+        return tf_corral;
+    }
+
+    public JTextField getTf_salud() {
+        return tf_salud;
+    }
+
+    public JButton getBtn_buscar() {
+        return btn_buscar;
+    }
+
+    public JTextField getTf_peso() {
+        return tf_peso;
+    }
+
+    public JTextField getTf_cantGra() {
+        return tf_cantGra;
+    }
+
+    public JComboBox getCb_colorMusc() {
+        return cb_colorMusc;
+    }
+
+    public JSpinner getSpinnerGraCob() {
+        return spinnerGraCob;
+    }
+
+    public JButton getBtn_clasificar() {
+        return btn_clasificar;
+    }
+
+    public JButton getBtn_sinClas() {
+        return btn_sinClas;
+    }
+
 }

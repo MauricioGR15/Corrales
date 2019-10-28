@@ -31,6 +31,10 @@ new FormModel {
 				name: "tf_idCria"
 				"columns": 10
 				"font": #Font1
+				"text": "0"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 2
@@ -48,6 +52,10 @@ new FormModel {
 				name: "tf_corral"
 				"columns": 10
 				"font": #Font1
+				"editable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 3
@@ -65,19 +73,36 @@ new FormModel {
 				name: "tf_salud"
 				"columns": 15
 				"font": #Font1
+				"editable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 4
 				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_sinClas"
+				"text": "Crias sin clasificar"
+				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 5
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_buscar"
 				"text": "Buscar"
 				"font": #Font1
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 5
 				"hAlign": 0
-				"gridwidth": 2
+				"gridx": 1
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
@@ -99,6 +124,10 @@ new FormModel {
 				name: "tf_peso"
 				"columns": 5
 				"font": #Font1
+				"text": "0"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 7
@@ -116,6 +145,10 @@ new FormModel {
 				name: "tf_cantGra"
 				"columns": 5
 				"font": #Font1
+				"text": "0"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 8
@@ -132,6 +165,9 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "cb_colorMusc"
 				"font": #Font1
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 9
@@ -148,6 +184,9 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JSpinner" ) {
 				name: "spinnerGraCob"
 				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 10
@@ -157,6 +196,9 @@ new FormModel {
 				name: "btn_clasificar"
 				"text": "Clasificar"
 				"font": #Font1
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 11
 				"hAlign": 0

@@ -1,6 +1,6 @@
 package Controllers;
 
-import App.Routines;
+import Support.Routines;
 import Models.Modelo;
 import Views.viewCorrales;
 import javax.swing.*;
@@ -8,9 +8,6 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
-import java.util.regex.Pattern;
-
-import static App.Routines.*;
 
 public class CorralController implements ActionListener, FocusListener, ItemListener, KeyListener{
 
@@ -35,6 +32,9 @@ public class CorralController implements ActionListener, FocusListener, ItemList
         view.getTf_noCorral().addFocusListener(this);
         view.getCb_type().addItemListener(this);
         view.getBtn_regCorral().addActionListener(this);
+
+        view.getTf_noCorral().addKeyListener(this);
+        view.getTf_capacity().addKeyListener(this);
     }
 
 
@@ -82,23 +82,12 @@ public class CorralController implements ActionListener, FocusListener, ItemList
     @Override
     public void focusLost(FocusEvent evt) {
         JTextField aux = (JTextField) evt.getSource();
-
         if(aux == view.getTf_capacity())
             expr = 1;
         else
             expr = 0;
 
-        if(aux.getText().isEmpty() || !rut.verifyExpression(aux.getText(),EXPRESIONES[expr])
-                || (aux == view.getTf_capacity() && aux.getText().length() > 5
-                || aux == view.getTf_noCorral() && aux.getText().length() > 10)){
-            aux.setBorder(BorderFactory.createLineBorder(Color.red));
-            aux.requestFocus();
-            return;
-        }
-        else{
-            aux.setBorder(original);
-            aux.transferFocus();
-        }
+        rut.borderCheck(aux,original);
     }
 
     @Override
@@ -112,10 +101,12 @@ public class CorralController implements ActionListener, FocusListener, ItemList
         JTextField aux = (JTextField) evt.getSource();
         if(aux == view.getTf_noCorral()){
            rut.soundAlert(evt,aux,10);
-           return;
+           rut.onlyNumbers(evt,aux);
         }
-        if(aux == view.getTf_capacity())
-            rut.soundAlert(evt,aux,5);
+        else {
+            rut.soundAlert(evt, aux, 5);
+            rut.onlyNumbers(evt, aux);
+        }
     }
 
     @Override

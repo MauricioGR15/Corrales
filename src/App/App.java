@@ -1,5 +1,6 @@
 package App;
 
+import Controllers.ClasController;
 import Controllers.CorralController;
 import Controllers.CriasController;
 import Models.Conexion;
@@ -21,6 +22,7 @@ public class App {
 
 		CriasController conCrias = new CriasController(principal.getPnl_crias(),model);
 		CorralController conCorrales = new CorralController(principal.getPnl_corrales(),model);
+		ClasController conClasificaciones = new ClasController(principal.getPnl_clas(),model);
 
 		if(conexion == null) {
 			JOptionPane.showMessageDialog(null, "conexion no realizada","*********", JOptionPane.ERROR_MESSAGE);

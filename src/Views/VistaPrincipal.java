@@ -71,7 +71,7 @@ public class VistaPrincipal extends JFrame {
         return pnl_crias;
     }
 
-    public viewClasificaciones getPnl_clasificaciones(){ return pnl_clas;}
+    public viewClasificaciones getPnl_clas(){ return pnl_clas;}
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
