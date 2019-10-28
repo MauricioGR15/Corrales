@@ -22,6 +22,7 @@ new FormModel {
 				name: "tf_idCria"
 				"columns": 10
 				"font": #SwingDerivedFont0
+				"text": "0"
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -131,6 +132,7 @@ new FormModel {
 				name: "tf_noCorral"
 				"columns": 10
 				"font": #SwingDerivedFont0
+				"text": "0"
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}

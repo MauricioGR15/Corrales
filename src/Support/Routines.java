@@ -1,6 +1,7 @@
-package App;
+package Support;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.regex.Pattern;
@@ -9,9 +10,27 @@ public class Routines {
 
 
     public void soundAlert(KeyEvent evt, JTextField aux, int size){
-        if(aux.getText().length() > size){
+        if(aux.getText().length() >= size){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
+        }
+    }
+
+    public void onlyNumbers(KeyEvent evt, JTextField aux){
+        if(!Character.isDigit(evt.getKeyChar()))
+            evt.consume();
+    }
+
+    public boolean borderCheck(JTextField aux, Border original){
+        if(aux.getText().isEmpty()){
+            aux.setBorder(BorderFactory.createLineBorder(Color.red));
+            aux.requestFocus();
+            return true;
+        }
+        else{
+            aux.setBorder(original);
+            aux.transferFocus();
+            return false;
         }
     }
 

@@ -1,6 +1,6 @@
 package Controllers;
 
-import App.Routines;
+import Support.Routines;
 import Models.Modelo;
 import Views.viewCrias;
 
@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 
-public class CriasController implements ActionListener, FocusListener, ItemListener, KeyListener {
+public class CriasController implements ActionListener, FocusListener, ItemListener, KeyListener{
 
     private Modelo model;
     private viewCrias view;
@@ -118,15 +118,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     @Override
     public void focusLost(FocusEvent evt) {
         JTextField aux = (JTextField) evt.getSource();
-        if(aux.getText().isEmpty() || !rut.verifyExpression(aux.getText(),expr)){
-            aux.setBorder(BorderFactory.createLineBorder(Color.red));
-            aux.requestFocus();
-            return;
-        }
-        else{
-            aux.setBorder(original);
-            aux.transferFocus();
-        }
+        rut.borderCheck(aux, original);
 
     }
 
@@ -150,6 +142,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     public void keyTyped(KeyEvent evt) {
         JTextField aux = (JTextField) evt.getSource();
         rut.soundAlert(evt, aux, 10);
+        rut.onlyNumbers(evt,aux);
     }
 
     @Override
