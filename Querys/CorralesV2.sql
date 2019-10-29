@@ -38,7 +38,10 @@ create table CRIAS(
 
 	primary key (cria_id),
 	foreign key (corral_no) references CORRALES(corral_no),
-	foreign key (dieta_id) references DIETAS(dieta_id)
+	foreign key (dieta_id) references DIETAS(dieta_id),
+
+	constraint FK_CriasCorral foreign key (corral_no) references CORRALES(corral_no),
+	constraint FK_CriasDietas foreign key (dieta_id) references DIETAS(dieta_id)
 	)
 
 create table ENFERMAS(
@@ -68,7 +71,6 @@ create table CLASIFICACIONES(
 create table SENSORES(
 	sensor_id varchar(10) not null unique,
 	sensor_pulso tinyint not null,
-	sensor_localizacion varchar(25) not null,
 
 	primary key (sensor_id)
 	)
@@ -83,9 +85,9 @@ create table GRASA_COB2(
 	)
 
 create table MOVIMIENTOS(
-	mov_renglon int identity(1,10) not null unique,
 	cria_id int not null,
 	corral_no int not null, 
+	mov_renglon int identity(1,10) not null unique,
 	mov_fechaE date not null,
 	mov_fechaS date,
 

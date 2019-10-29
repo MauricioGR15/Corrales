@@ -37,6 +37,14 @@ create procedure select_CriaClasificada
 	@idCria int
 	as select * from dbo.CriasClasificadas where cria_id = @idCria
 
+
+create procedure update_CriasFechaS
+	@idCria int,
+	@fechaS date
+	as update CRIAS set cria_fechaS = @fechaS where cria_id = @idCria 
+
+exec update_CriasFechaS @idCria =
+
 exec select_CriaClasificada @idCria = 1	
 
 exec select_Cria @idCria = 1
