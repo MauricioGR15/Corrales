@@ -3,6 +3,7 @@ package Controllers;
 import Support.Routines;
 import Models.Modelo;
 import Views.viewCrias;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -26,14 +27,11 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
         rut = new Routines();
         hazEscuchadores();
         original = view.getTf_idCria().getBorder();
+//        view.getFechaL().setSe;
     }
 
     public void hazEscuchadores(){
         view.getBtn_registrarCrias().addActionListener(this);
-
-        view.getCb_fechaL_day().addItemListener(this);
-        view.getCb_fechaL_month().addItemListener(this);
-        view.getCb_fechaL_year().addItemListener(this);
 
         view.getR_enferma().addActionListener(this);
         view.getR_riesgo().addActionListener(this);
@@ -47,23 +45,23 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
 
     }
 
-    public String buildDate(){
-        String y = view.getCb_fechaL_year().getSelectedItem() + "";
-        String m = view.getCb_fechaL_month().getSelectedIndex() + "";
-        String d = view.getCb_fechaL_day().getSelectedItem() + "";
-        return y + ((m.length()==1)?0+m:m) + ((d.length()==1)?0+d:d);
-    }
+
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+
+
+//        String date = view.getDp_fechaL().getDate().toString();
+//        System.out.println(date);
+
         if(evt.getSource() == view.getBtn_registrarCrias()){
-            if (checkDate()) {
+            if (view.getDp_fechaL().getText().isEmpty()) {
                 rut.msgError("No seleccionó una fecha válida");
                 return;
             }
-            System.out.println(buildDate());
+
             int idTernera = Integer.parseInt(view.getTf_idCria().getText());
-            String date = buildDate();
+            String date = view.getDp_fechaL().getDate().toString();
             char s = salud[checkRadio()];
             int noCorral = Integer.parseInt(view.getTf_noCorral().getText());
             String dieta = dietas();
@@ -88,10 +86,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
         else return 2;
     }
 
-    public boolean checkDate(){
-        return view.getCb_fechaL_year().getSelectedIndex() == 0 || view.getCb_fechaL_month().getSelectedIndex() == 0
-                || view.getCb_fechaL_day().getSelectedIndex() == 0;
-    }
+
 
     public boolean checkComboDietas(){
         return (view.getCb_dieta().getSelectedIndex() == 0);
@@ -126,16 +121,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     public void itemStateChanged(ItemEvent evt) {
         if(evt.getStateChange()!=ItemEvent.SELECTED)
             return;
-        //ComboBox Años
-        if (evt.getSource() == view.getCb_fechaL_year()){
-            view.cbMonths();
-            return;
-        }
-        //ComboBox Meses
-        if(evt.getSource() == view.getCb_fechaL_month()){
-            view.cbDays();
-            return;
-        }
+
     }
 
     @Override

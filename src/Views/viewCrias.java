@@ -6,6 +6,7 @@ package Views;
 
 import javax.swing.*;
 import java.awt.*;
+import com.github.lgooddatepicker.components.*;
 
 /**
  * @author Mauricio Garcia Rubio
@@ -19,15 +20,11 @@ public class viewCrias extends JPanel {
 
     public viewCrias() {
         initComponents();
-
-        months = new String[]{"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
-        days = new int[]{31,28,31,30,31,30,31,31,30,31,30,31};
         dietas = new String[]{"Heno de alfalfa","Ensilaje","Pasto","Maíz"};
-        cbYears();
-        cbMonths();
-        cbDays();
         cbDietas();
     }
+
+
 
 
 
@@ -37,9 +34,7 @@ public class viewCrias extends JPanel {
         label1 = new JLabel();
         tf_idCria = new JTextField();
         label2 = new JLabel();
-        cb_fechaL_year = new JComboBox();
-        cb_fechaL_month = new JComboBox();
-        cb_fechaL_day = new JComboBox();
+        dp_fechaL = new DatePicker();
         label3 = new JLabel();
         r_saludable = new JRadioButton();
         r_enferma = new JRadioButton();
@@ -51,11 +46,13 @@ public class viewCrias extends JPanel {
         btn_registrarCrias = new JButton();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
+        . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing
+        . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
+        Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
+        ) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
+        public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName (
+        ) )) throw new RuntimeException( ); }} );
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).columnWidths = new int[] {0, 75, 0, 0};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0};
@@ -82,24 +79,9 @@ public class viewCrias extends JPanel {
         add(label2, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.EAST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
-
-        //---- cb_fechaL_year ----
-        cb_fechaL_year.setFont(new Font("Century Gothic", cb_fechaL_year.getFont().getStyle(), cb_fechaL_year.getFont().getSize()));
-        add(cb_fechaL_year, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+        add(dp_fechaL, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
+            GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
-
-        //---- cb_fechaL_month ----
-        cb_fechaL_month.setFont(new Font("Century Gothic", cb_fechaL_month.getFont().getStyle(), cb_fechaL_month.getFont().getSize()));
-        add(cb_fechaL_month, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
-
-        //---- cb_fechaL_day ----
-        cb_fechaL_day.setFont(new Font("Century Gothic", cb_fechaL_day.getFont().getStyle(), cb_fechaL_day.getFont().getSize()));
-        add(cb_fechaL_day, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 0), 0, 0));
 
         //---- label3 ----
         label3.setText("Salud ternera:");
@@ -175,9 +157,7 @@ public class viewCrias extends JPanel {
     private JLabel label1;
     private JTextField tf_idCria;
     private JLabel label2;
-    private JComboBox cb_fechaL_year;
-    private JComboBox cb_fechaL_month;
-    private JComboBox cb_fechaL_day;
+    private DatePicker dp_fechaL;
     private JLabel label3;
     private JRadioButton r_saludable;
     private JRadioButton r_enferma;
@@ -190,31 +170,7 @@ public class viewCrias extends JPanel {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 
-    public void cbYears(){
-        cb_fechaL_year.removeAllItems();
-        cb_fechaL_year.addItem("AÑO");
-        for(int i=2012; i<2100; i++)
-            cb_fechaL_year.addItem(i);
-    }
 
-    public void cbMonths(){
-        cb_fechaL_month.removeAllItems();
-        cb_fechaL_month.addItem("MES");
-        for (int i = 0; i< months.length; i++)
-            cb_fechaL_month.addItem(months[i]);
-    }
-
-    public void cbDays(){
-        cb_fechaL_day.removeAllItems();
-        cb_fechaL_day.addItem("DÍA");
-        if(cb_fechaL_year.getSelectedIndex() == 0 || cb_fechaL_month.getSelectedIndex() == 0)
-            return;
-        year = (int) cb_fechaL_year.getSelectedItem();
-        for(int i = 1; i<=days[cb_fechaL_month.getSelectedIndex()-1]; i++)
-            cb_fechaL_day.addItem(i);
-        if((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)))
-            cb_fechaL_day.addItem(29);
-    }
 
     public void cbDietas(){
         cb_dieta.addItem("Seleccione");
@@ -226,26 +182,11 @@ public class viewCrias extends JPanel {
     public void resetComponents(){
         tf_idCria.setText("");
         tf_noCorral.setText("");
-        cbYears();
-        cbMonths();
-        cbDays();
         cb_dieta.setSelectedIndex(0);
     }
 
     public JTextField getTf_idCria() {
         return tf_idCria;
-    }
-
-    public JComboBox getCb_fechaL_year() {
-        return cb_fechaL_year;
-    }
-
-    public JComboBox getCb_fechaL_month() {
-        return cb_fechaL_month;
-    }
-
-    public JComboBox getCb_fechaL_day() {
-        return cb_fechaL_day;
     }
 
     public JRadioButton getR_riesgo() {
@@ -270,6 +211,10 @@ public class viewCrias extends JPanel {
 
     public JComboBox getCb_dieta() {
         return cb_dieta;
+    }
+
+    public DatePicker getDp_fechaL() {
+        return dp_fechaL;
     }
 
 

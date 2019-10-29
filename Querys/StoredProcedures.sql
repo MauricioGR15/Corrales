@@ -23,9 +23,27 @@ create procedure InsertClasificaciones
 	@grasCobertura tinyint,
 	@criaId int
 	as
-	insert into CLASIFICACIONES values (@criaId, @peso,@colorMusc,@cantGrasa,@grasCobertura)
+	insert into CLASIFICACIONES (cria_id, clas_peso,clas_cantGrasa,clas_colorMusculo,clas_grasCobertura ) 
+	values (@criaId, @peso,@cantGrasa,@colorMusc,@grasCobertura)
 
 
 create procedure Select_noCorral as select corral_no from CORRALES
-	
+
+create procedure select_Cria 
+	@idCria int
+	as select cria_id, corral_no, cria_salud from CRIAS where cria_id = @idCria
+
+create procedure select_CriaClasificada 
+	@idCria int
+	as select * from dbo.CriasClasificadas where cria_id = @idCria
+
+exec select_CriaClasificada @idCria = 1	
+
+exec select_Cria @idCria = 1
+
+select * from CLASIFICACIONES
+select * from CORRALES
+select * from CRIAS
+
+
 

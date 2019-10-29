@@ -1,8 +1,6 @@
 package App;
 
-import Controllers.ClasController;
-import Controllers.CorralController;
-import Controllers.CriasController;
+import Controllers.*;
 import Models.Conexion;
 import Models.Modelo;
 import Views.VistaPrincipal;
@@ -23,16 +21,18 @@ public class App {
 		CriasController conCrias = new CriasController(principal.getPnl_crias(),model);
 		CorralController conCorrales = new CorralController(principal.getPnl_corrales(),model);
 		ClasController conClasificaciones = new ClasController(principal.getPnl_clas(),model);
+		ProcesarController conProcesar = new ProcesarController(principal.getPnl_procesar(),model);
+		EnfermasController conEnfermas = new EnfermasController(principal.getPnl_enfermas(),model);
 
 		if(conexion == null) {
 			JOptionPane.showMessageDialog(null, "conexion no realizada","*********", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
-		String dieta1 = "insert into DIETAS values ('DIETA01',100,'Heno de alfalfa')";
-		String dieta2 = "insert into DIETAS values ('DIETA02',150,'Ensilaje')";
-		String dieta3 = "insert into DIETAS values ('DIETA03',200,'Pasto')";
-		String dieta4 = "insert into DIETAS values ('DIETA04',85,'Maíz')";
+//		String dieta1 = "insert into DIETAS values ('DIETA01',100,'Heno de alfalfa')";
+//		String dieta2 = "insert into DIETAS values ('DIETA02',150,'Ensilaje')";
+//		String dieta3 = "insert into DIETAS values ('DIETA03',200,'Pasto')";
+//		String dieta4 = "insert into DIETAS values ('DIETA04',85,'Maíz')";
 //		conexion.execute(dieta1);
 //		conexion.execute(dieta2);
 //		conexion.execute(dieta3);

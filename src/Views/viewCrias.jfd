@@ -39,38 +39,16 @@ new FormModel {
 				"gridy": 1
 				"hAlign": 4
 			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaL_year"
-				"font": #SwingDerivedFont0
+			add( new FormComponent( "com.github.lgooddatepicker.components.DatePicker" ) {
+				name: "dp_fechaL"
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 1
-				"hAlign": 5
-			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaL_month"
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 1
-				"hAlign": 5
-			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_fechaL_day"
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 3
-				"gridy": 1
-				"hAlign": 5
+				"gridwidth": 2
+				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"

@@ -34,6 +34,15 @@ public class Routines {
         }
     }
 
+    public String salud(String c){
+        if(c.equals("S"))
+            return "Saludable";
+        else if(c.equals("R"))
+            return "En riesgo";
+        else
+            return "Enferma";
+    }
+
     public boolean verifyExpression(String cadena, String expr){
         Pattern pat = Pattern.compile(expr);
         return pat.matcher(cadena).find();

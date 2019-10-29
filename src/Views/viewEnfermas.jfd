@@ -1,0 +1,44 @@
+JFDML JFormDesigner: "7.0.0.6.255" Java: "11.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "0, 0, 0, 0, 0"
+			"$rowSpecs": "0, 0, 0, 0"
+			"$hGap": 5
+			"$vGap": 5
+			"$alignTop": true
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Crias enfermas y en riesgo"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridwidth": 3
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane"
+				"minimumSize": new java.awt.Dimension( 400, 300 )
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "t_enfermas"
+					"minimumSize": new java.awt.Dimension( 150, 150 )
+					"preferredSize": new java.awt.Dimension( 300, 300 )
+					"font": new java.awt.Font( "Century Gothic", 0, 12 )
+					auxiliary() {
+						"JavaCodeGenerator.variableGetter": true
+					}
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+				"gridwidth": 4
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 75, 40 )
+			"size": new java.awt.Dimension( 565, 395 )
+		} )
+	}
+}

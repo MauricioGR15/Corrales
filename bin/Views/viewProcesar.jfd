@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 70, 0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0"
+			"$columnSpecs": "0, 0, 0"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignTop": true
@@ -13,95 +13,41 @@ new FormModel {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
-				"text": "ID Ternera:"
-				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "Century Gothic", 0, 0, false )
+				"text": "ID cría:"
+				"font": &Font0 new java.awt.Font( "Century Gothic", 0, 12 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf_idCria"
 				"columns": 10
-				"font": #SwingDerivedFont0
+				"font": #Font0
 				"text": "0"
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
+				"gridy": 1
 				"hAlign": 2
-				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_Buscar"
+				"text": "Buscar"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+				"hAlign": 0
+				"gridx": 1
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "Fecha de llegada:"
-				"font": #SwingDerivedFont0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 1
-				"hAlign": 4
-			} )
-			add( new FormComponent( "com.github.lgooddatepicker.components.DatePicker" ) {
-				name: "dp_fechaL"
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 1
-				"gridwidth": 2
-				"hAlign": 2
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label3"
-				"text": "Salud ternera:"
-				"font": #SwingDerivedFont0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 2
-				"hAlign": 4
-			} )
-			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_saludable"
-				"text": "Saludable"
-				"$buttonGroup": new FormReference( "group" )
-				"selected": true
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 2
-				"hAlign": 0
-			} )
-			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_enferma"
-				"text": "Enferma"
-				"$buttonGroup": new FormReference( "group" )
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 2
-				"hAlign": 0
-			} )
-			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_riesgo"
-				"text": "En riesgo"
-				"$buttonGroup": new FormReference( "group" )
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 3
-				"gridy": 2
-				"hAlign": 0
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label9"
-				"text": "No de corral:"
-				"font": #SwingDerivedFont0
+				"text": "No. Corral:"
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 3
 				"hAlign": 4
@@ -109,53 +55,111 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf_noCorral"
 				"columns": 10
-				"font": #SwingDerivedFont0
-				"text": "0"
+				"font": #Font0
+				"editable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"hAlign": 2
-				"gridy": 3
 				"gridx": 1
-				"gridwidth": 2
+				"gridy": 3
+				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label8"
-				"text": "Dieta:"
-				"font": #SwingDerivedFont0
+				name: "label3"
+				"text": "Fecha de Llegada:"
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
 				"hAlign": 4
 			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "cb_dieta"
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tf_fechaL"
+				"columns": 10
+				"font": #Font0
+				"editable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 4
 				"hAlign": 2
-				"gridwidth": 2
 			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "btn_registrarCrias"
-				"text": "Registrar"
-				"font": #SwingDerivedFont0
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Salud:"
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 5
+				"hAlign": 4
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tf_salud"
+				"columns": 10
+				"font": #Font0
+				"editable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 5
+				"hAlign": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Grasa de cobertura:"
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 6
+				"hAlign": 4
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tf_grasaCob"
+				"columns": 5
+				"font": #Font0
+				"editable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 6
-				"gridwidth": 2
+				"hAlign": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Fecha de Salida:"
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 8
+			} )
+			add( new FormComponent( "com.github.lgooddatepicker.components.DatePicker" ) {
+				name: "dp_fechaS"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 8
+				"hAlign": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_procesar"
+				"text": "Procesar"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 9
+				"hAlign": 0
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 75, 25 )
-			"size": new java.awt.Dimension( 430, 320 )
-		} )
-		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
-			name: "group"
-		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 15, 365 )
+			"location": new java.awt.Point( 95, 70 )
+			"size": new java.awt.Dimension( 400, 340 )
 		} )
 	}
 }
