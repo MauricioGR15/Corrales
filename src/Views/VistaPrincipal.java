@@ -15,6 +15,8 @@ public class VistaPrincipal extends JFrame {
     private viewCorrales pnl_corrales;
     private viewCrias pnl_crias;
     private viewClasificaciones pnl_clas;
+    private viewProcesar pnl_procesar;
+    private viewEnfermas pnl_enfermas;
 
     public VistaPrincipal() {
 
@@ -61,6 +63,8 @@ public class VistaPrincipal extends JFrame {
         tabbed.add("CORRALES",pnl_corrales = new viewCorrales());
         tabbed.add("CRIAS",pnl_crias = new viewCrias());
         tabbed.add("CLASIFICAR",pnl_clas = new viewClasificaciones());
+        tabbed.add("PROCESAR",pnl_procesar = new viewProcesar());
+        tabbed.add("ENFERMAS",pnl_enfermas = new viewEnfermas());
     }
 
     public viewCorrales getPnl_corrales() {
@@ -72,6 +76,10 @@ public class VistaPrincipal extends JFrame {
     }
 
     public viewClasificaciones getPnl_clas(){ return pnl_clas;}
+
+    public viewProcesar getPnl_procesar(){return pnl_procesar;}
+
+    public viewEnfermas getPnl_enfermas(){return  pnl_enfermas;}
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown

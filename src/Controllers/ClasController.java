@@ -14,7 +14,6 @@ import java.sql.SQLException;
 
 public class ClasController implements ActionListener, FocusListener, ItemListener, KeyListener{
 
-    private final String expr = "[0-9]{1,9}$";
     private Modelo model;
     private viewClasificaciones view;
     private Routines rut;
@@ -82,7 +81,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
     }
 
     private void onClicBuscar(){
-        ResultSet rs = null;
+        ResultSet rs;
         int idCria = Integer.parseInt(view.getTf_idCria().getText());
         try {
             rs = model.sp_selectCria(idCria);
@@ -93,7 +92,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
                 System.out.println(cria_id + "......" + corral_no + "......" + cria_salud);
 
                 view.getTf_corral().setText(corral_no + "");
-                view.getTf_salud().setText(salud(cria_salud));
+                view.getTf_salud().setText(rut.salud(cria_salud));
             }
             else
                 rut.msgError("Este ID no ha sido registrado");
@@ -111,14 +110,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
         return true;
     }
 
-    private String salud(String c){
-        if(c.equals("S"))
-            return "Saludable";
-        else if(c.equals("R"))
-            return "En riesgo";
-        else
-            return "Enferma";
-    }
+
 
     @Override
     public void focusGained(FocusEvent evt) {

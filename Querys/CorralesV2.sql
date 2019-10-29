@@ -55,12 +55,12 @@ create table ENFERMAS(
 
 
 create table CLASIFICACIONES(
+	cria_id int not null, 
 	clas_peso smallint not null,
 	clas_colorMusculo varchar(20) not null,
 	clas_cantGrasa smallint not null,
 	clas_grasCobertura tinyint not null,
-	cria_id int not null, 
-
+	
 	primary key(cria_id),
 	constraint FK_CLAS foreign key (cria_id) references CRIAS(cria_id)
 	)
@@ -103,6 +103,9 @@ drop database CorralesV2
 alter table CLASIFICACIONES add constraint CHK_Peso check (clas_peso < 1500)
 alter table CLASIFICACIONES add constraint CHK_CantGrasa check (clas_cantGrasa < 1500)
 alter table CORRALES add constraint CHK_Capacidad check (corral_capacidad < 5000)
+
+alter table CRIAS add constraint CHK_FECHAS check (cria_fechaS > cria_fechaL)
+insert into CRIAS values (15,'20201028','20191028','S',1,'DIETA01')
 
 select * from DIETAS
 
