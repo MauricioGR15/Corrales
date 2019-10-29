@@ -1,18 +1,19 @@
 package Models;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Modelo {
 
-
-
     private Statement conection;
-    String cad;
+    private String cad;
+    private ResultSet rs;
+    private PreparedStatement ps;
 
     public Modelo(Statement con){
         conection = con;
-
     }
 
     public void sp_corrales(int noCorral, short type, int capacity) throws SQLException {
@@ -33,7 +34,7 @@ public class Modelo {
     }
 
     public void sp_clasificacion(int noCria, short peso, String colorM, short cantG, short grasaC) throws SQLException {
-        cad ="exec InsertClas @id ="+noCria+", @peso = '"+colorM+"', @cantGrasa ="+cantG+", @grasaCobertura ="+grasaC;
+        cad ="exec InsertClasificaciones @criaId ="+noCria+", @peso = '"+peso+"', @cantGrasa ="+cantG+", @colorMusc = '"+ colorM+ "' ,@grasCobertura ="+grasaC;
         conection.execute(cad);
     }
 
@@ -42,8 +43,15 @@ public class Modelo {
         conection.execute(cad);
     }
 
+    public ResultSet sp_selectCria(int idCria) throws SQLException {
+        cad ="exec select_Cria @idCria = " + idCria;
+        rs = conection.executeQuery(cad);
+        return rs;
+    }
+
     public Statement getConection() {
         return conection;
     }
+
 
 }

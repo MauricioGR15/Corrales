@@ -3,6 +3,7 @@ package Controllers;
 import Support.Routines;
 import Models.Modelo;
 import Views.viewCrias;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -26,6 +27,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
         rut = new Routines();
         hazEscuchadores();
         original = view.getTf_idCria().getBorder();
+//        view.getFechaL().setSe;
     }
 
     public void hazEscuchadores(){
@@ -56,6 +58,10 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+
+        System.out.println(view.getFechaL().getDate());
+
+
         if(evt.getSource() == view.getBtn_registrarCrias()){
             if (checkDate()) {
                 rut.msgError("No seleccionó una fecha válida");

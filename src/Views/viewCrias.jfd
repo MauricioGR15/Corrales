@@ -158,6 +158,16 @@ new FormModel {
 				"hAlign": 2
 				"gridwidth": 2
 			} )
+			add( new FormComponent( "com.github.lgooddatepicker.components.DatePicker" ) {
+				name: "fechaL"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 5
+				"gridwidth": 2
+			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_registrarCrias"
 				"text": "Registrar"

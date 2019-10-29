@@ -16,5 +16,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mssql-jdbc-7.4.1.jre12" level="project" />
+    <orderEntry type="library" name="LGoodDatePicker-10.3.1" level="application" />
   </component>
 </module>
