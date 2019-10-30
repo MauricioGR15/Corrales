@@ -69,15 +69,16 @@ create table CLASIFICACIONES(
 	)
 
 create table SENSORES(
-	sensor_id varchar(10) not null unique,
-	sensor_pulso tinyint not null,
+	sensor_id int identity(1,10) not null unique,
+	sensor_pulso tinyint,
+	sensor_localizacion varchar(25),
 
 	primary key (sensor_id)
 	)
 
 create table GRASA_COB2(
 	cria_id int not null,
-	sensor_id varchar(10) not null,
+	sensor_id int not null,
 
 	primary key (cria_id,sensor_id),
 	constraint FK_GC2_CRIA foreign key (cria_id) references CRIAS(cria_id),

@@ -6,14 +6,28 @@ package Views;
 
 import java.awt.*;
 import javax.swing.*;
+
+import Modals.DialogClasificadas;
 import com.github.lgooddatepicker.components.*;
 
 /**
  * @author unknown
  */
 public class viewProcesar extends JPanel {
+
+    private DialogClasificadas clasificadas;
+
     public viewProcesar() {
         initComponents();
+        clasificadas = new DialogClasificadas();
+    }
+
+    public JButton getBtn_clas() {
+        return btn_clas;
+    }
+
+    public JButton getButton1() {
+        return button1;
     }
 
 
@@ -34,19 +48,21 @@ public class viewProcesar extends JPanel {
         tf_grasaCob = new JTextField();
         label6 = new JLabel();
         dp_fechaS = new DatePicker();
+        button1 = new JButton();
         btn_procesar = new JButton();
+        btn_clas = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
-        .border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder
-        .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.
-        awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
-        ; addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}})
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing
+        . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder
+        . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .
+        awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) )
+        ;  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+        ) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } )
         ;
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- label1 ----
         label1.setText("ID cr\u00eda:");
@@ -59,14 +75,14 @@ public class viewProcesar extends JPanel {
         tf_idCria.setColumns(10);
         tf_idCria.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         tf_idCria.setText("0");
-        add(tf_idCria, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+        add(tf_idCria, new GridBagConstraints(1, 1, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- btn_Buscar ----
         btn_Buscar.setText("Buscar");
         btn_Buscar.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-        add(btn_Buscar, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+        add(btn_Buscar, new GridBagConstraints(1, 2, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -81,7 +97,7 @@ public class viewProcesar extends JPanel {
         tf_noCorral.setColumns(10);
         tf_noCorral.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         tf_noCorral.setEditable(false);
-        add(tf_noCorral, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
+        add(tf_noCorral, new GridBagConstraints(1, 3, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -96,7 +112,7 @@ public class viewProcesar extends JPanel {
         tf_fechaL.setColumns(10);
         tf_fechaL.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         tf_fechaL.setEditable(false);
-        add(tf_fechaL, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
+        add(tf_fechaL, new GridBagConstraints(1, 4, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -111,7 +127,7 @@ public class viewProcesar extends JPanel {
         tf_salud.setColumns(10);
         tf_salud.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         tf_salud.setEditable(false);
-        add(tf_salud, new GridBagConstraints(1, 5, 1, 1, 0.0, 0.0,
+        add(tf_salud, new GridBagConstraints(1, 5, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -126,7 +142,7 @@ public class viewProcesar extends JPanel {
         tf_grasaCob.setColumns(5);
         tf_grasaCob.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         tf_grasaCob.setEditable(false);
-        add(tf_grasaCob, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0,
+        add(tf_grasaCob, new GridBagConstraints(1, 6, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
@@ -136,14 +152,28 @@ public class viewProcesar extends JPanel {
         add(label6, new GridBagConstraints(0, 8, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
-        add(dp_fechaS, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0,
+        add(dp_fechaS, new GridBagConstraints(1, 8, 2, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- button1 ----
+        button1.setText("Sacrificar");
+        button1.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        add(button1, new GridBagConstraints(1, 9, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- btn_procesar ----
         btn_procesar.setText("Procesar");
         btn_procesar.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-        add(btn_procesar, new GridBagConstraints(1, 9, 1, 1, 0.0, 0.0,
+        add(btn_procesar, new GridBagConstraints(2, 9, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- btn_clas ----
+        btn_clas.setText("Crias clasificadas");
+        btn_clas.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        add(btn_clas, new GridBagConstraints(1, 10, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 0, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -164,8 +194,12 @@ public class viewProcesar extends JPanel {
     private JTextField tf_grasaCob;
     private JLabel label6;
     private DatePicker dp_fechaS;
+    private JButton button1;
     private JButton btn_procesar;
+    private JButton btn_clas;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    public DialogClasificadas getClasificadas(){return  clasificadas;}
 
     public JTextField getTf_idCria() {
         return tf_idCria;

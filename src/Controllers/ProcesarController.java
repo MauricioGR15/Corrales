@@ -5,12 +5,14 @@ import Support.Routines;
 import Views.viewProcesar;
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProcesarController implements ActionListener, KeyListener, FocusListener {
 
+    private String[] columnas = {"ID Cria","Llegada","Grasa cob","Salud"};
     private Modelo model;
     private viewProcesar view;
     private Routines rut;
@@ -30,6 +32,8 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
 
         view.getBtn_Buscar().addActionListener(this);
         view.getBtn_procesar().addActionListener(this);
+        view.getBtn_clas().addActionListener(this);
+        view.getBtn_clas().addActionListener(this);
     }
 
 
@@ -52,6 +56,31 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
                 return;
             }
             onClicProcesar();
+            return;
+        }
+
+        if(button == view.getBtn_clas()){
+            onClicClasificadas();
+            return;
+        }
+    }
+
+    private void onClicClasificadas(){
+        DefaultTableModel dtm = new DefaultTableModel(null,columnas);
+        String registros [] = new String[columnas.length];
+        try{
+            ResultSet rs = model.selectVistaCriasClasificadasSinProcesar();
+            while(rs.next()){
+                registros[0] = rs.getInt("cria_id")+"";
+                registros[1] = rs.getString("cria_fechaL");
+                registros[2] = rs.getInt("clas_grasCobertura")+"";
+                registros[3] = rut.convertSalud(rs.getString("cria_salud").charAt(0));
+                dtm.addRow(registros);
+            }
+            view.getClasificadas().getTable().setModel(dtm);
+            view.getClasificadas().setVisible(true);
+        }catch (SQLException e){
+            rut.msgError(e.getMessage());
         }
     }
 
@@ -63,7 +92,10 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
             model.sp_updateCriasFechaS(idCria,fechaS);
         }catch (SQLException e){
             rut.msgError("La fecha de salida no puede ser menor que la fecha de llegada de la cría");
+            return;
         }
+
+        rut.msgExito();
 
     }
 

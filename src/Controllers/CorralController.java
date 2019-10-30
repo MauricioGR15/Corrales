@@ -5,7 +5,6 @@ import Models.Modelo;
 import Views.viewCorrales;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 
@@ -15,8 +14,6 @@ public class CorralController implements ActionListener, FocusListener, ItemList
     private Modelo model;
     private Routines rut;
     private byte type;
-    private final String []EXPRESIONES = new String[]{"[0-9]{1,9}$","[0-9]{1,5}$"};
-    private int expr = 0;
     private Border original;
 
     public CorralController(viewCorrales view, Modelo model){
@@ -40,16 +37,21 @@ public class CorralController implements ActionListener, FocusListener, ItemList
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+
+        if(view.getTf_noCorral().getText().isEmpty() || view.getTf_capacity().getText().isEmpty()){
+            rut.msgError("Hay campos vacíos");
+            return;
+        }
+
         if(evt.getSource() == view.getBtn_regCorral()){
             int idCorral = Integer.parseInt(view.getTf_noCorral().getText());
             int cap = Integer.parseInt(view.getTf_capacity().getText());
             if(checkType()){
                 byte t = type;
                 try {
-                    model.sp_corrales(idCorral,t,cap);
+                    model.sp_insertCorrales(idCorral,t,cap);
                 } catch (SQLException e) {
-                    rut.msgError("Error al insertar");
-                    e.printStackTrace();
+                    rut.msgError("El corral con ID '" + idCorral  + "' ya existe");
                     view.resetComponents();
                     return;
                 }
@@ -82,11 +84,6 @@ public class CorralController implements ActionListener, FocusListener, ItemList
     @Override
     public void focusLost(FocusEvent evt) {
         JTextField aux = (JTextField) evt.getSource();
-        if(aux == view.getTf_capacity())
-            expr = 1;
-        else
-            expr = 0;
-
         rut.borderCheck(aux,original);
     }
 

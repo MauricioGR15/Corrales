@@ -5,22 +5,28 @@ import Support.Routines;
 import Views.viewEnfermas;
 
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class EnfermasController {
+public class EnfermasController implements ActionListener {
 
     private Modelo model;
     private viewEnfermas view;
     private Routines rut;
-    private final String columnas[] = {"ID Cría", "No. Corral", "Salud", "Fecha llegada","Grasa cobertura"};
+    private final String columnas[] = {"ID Cría", "No. Corral", "Salud", "Llegada","Grasa Cob"};
 
     public EnfermasController(viewEnfermas view, Modelo model){
         this.view = view;
         this.model = model;
         rut = new Routines();
         fillTable();
-        view.getScrollPane().updateUI();
+        hazEscuchadores();
+    }
+
+    private  void hazEscuchadores(){
+        view.getBtn_actualizar().addActionListener(this);
     }
 
 
@@ -47,4 +53,12 @@ public class EnfermasController {
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+        if(evt.getSource() == view.getBtn_actualizar()){
+            fillTable();
+            System.out.println("entra");
+        }
+
+    }
 }

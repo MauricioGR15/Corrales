@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+			"$columnSpecs": "0, 0, 0, 0, 0"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignTop": true
@@ -31,6 +31,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 1
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_Buscar"
@@ -43,6 +44,7 @@ new FormModel {
 				"gridy": 2
 				"hAlign": 0
 				"gridx": 1
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -64,6 +66,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 3
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
@@ -85,6 +88,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 4
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
@@ -106,6 +110,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 5
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
@@ -127,6 +132,7 @@ new FormModel {
 				"gridx": 1
 				"gridy": 6
 				"hAlign": 2
+				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
@@ -144,6 +150,19 @@ new FormModel {
 				"gridx": 1
 				"gridy": 8
 				"hAlign": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Sacrificar"
+				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 9
+				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_procesar"
@@ -153,9 +172,22 @@ new FormModel {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
+				"gridx": 2
 				"gridy": 9
 				"hAlign": 0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_clas"
+				"text": "Crias clasificadas"
+				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 10
+				"hAlign": 0
+				"gridwidth": 2
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 95, 70 )

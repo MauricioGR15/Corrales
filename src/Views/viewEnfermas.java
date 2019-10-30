@@ -16,6 +16,10 @@ public class viewEnfermas extends JPanel {
         return scrollPane;
     }
 
+    public JButton getBtn_actualizar() {
+        return btn_actualizar;
+    }
+
 
 
     private void initComponents() {
@@ -24,21 +28,23 @@ public class viewEnfermas extends JPanel {
         label2 = new JLabel();
         scrollPane = new JScrollPane();
         t_enfermas = new JTable();
+        btn_actualizar = new JButton();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
+        setPreferredSize(new Dimension(477, 400));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
+        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
+        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
+        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- label2 ----
-        label2.setText("Crias enfermas y en riesgo");
+        label2.setText("Crias enfermas");
+        label2.setFont(new Font("Century Gothic", Font.BOLD, 12));
         add(label2, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
@@ -56,6 +62,12 @@ public class viewEnfermas extends JPanel {
         add(scrollPane, new GridBagConstraints(0, 1, 4, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
+
+        //---- btn_actualizar ----
+        btn_actualizar.setText("Actualizar");
+        add(btn_actualizar, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            new Insets(0, 0, 5, 5), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -64,6 +76,7 @@ public class viewEnfermas extends JPanel {
     private JLabel label2;
     private JScrollPane scrollPane;
     private JTable t_enfermas;
+    private JButton btn_actualizar;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 

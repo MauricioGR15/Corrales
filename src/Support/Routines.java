@@ -8,6 +8,25 @@ import java.util.regex.Pattern;
 
 public class Routines {
 
+    private final String[] SALUD = {"Saludable","Enferma"};
+
+    public String convertSalud(char c){
+        if(c == 'S')
+            return SALUD[0];
+        else
+            return SALUD[1];
+    }
+
+    public int nextInt(int max, int min){
+        return (int) ((Math.random() * ((max - min) + 1)) + min);
+    }
+
+    public String procesada(String cad){
+        if(cad == null)
+            return "NO PROCESADA";
+        else
+            return cad;
+    }
 
     public void soundAlert(KeyEvent evt, JTextField aux, int size){
         if(aux.getText().length() >= size){
@@ -35,12 +54,8 @@ public class Routines {
     }
 
     public String salud(String c){
-        if(c.equals("S"))
-            return "Saludable";
-        else if(c.equals("R"))
-            return "En riesgo";
-        else
-            return "Enferma";
+        if(c.equals("S")) return "Saludable";
+        else return "Enferma";
     }
 
     public boolean verifyExpression(String cadena, String expr){

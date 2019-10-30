@@ -4,6 +4,8 @@
 
 package Views;
 
+import Modals.DialogCriasSinClas;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -15,6 +17,7 @@ public class viewClasificaciones extends JPanel {
 
     private String colorM[] = {"Rojo vivo","Muy rojo","Rojo claro"};
     private SpinnerModel spinnerModel;
+    private DialogCriasSinClas dialog;
 
 
 
@@ -23,6 +26,7 @@ public class viewClasificaciones extends JPanel {
         initComponents();
         fillSpinner();
         cbColorM();
+        dialog = new DialogCriasSinClas();
     }
 
     private void fillSpinner(){
@@ -34,6 +38,15 @@ public class viewClasificaciones extends JPanel {
         cb_colorMusc.addItem("Seleccione");
         for (int i=0; i<colorM.length; i++)
             cb_colorMusc.addItem(colorM[i]);
+    }
+
+    public void resetComponents(){
+        tf_peso.setText("0");
+        tf_cantGra.setText("0");
+        cb_colorMusc.setSelectedIndex(0);
+        tf_idCria.setText("0");
+        tf_corral.setText("");
+        tf_salud.setText("");
     }
 
 
@@ -84,12 +97,11 @@ public class viewClasificaciones extends JPanel {
         btn_clasificar = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
-        .EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax
-        .swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,
-        12),java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans
-        .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.
-        getPropertyName()))throw new RuntimeException();}});
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+        0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+        . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+        beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new GridBagLayout());
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
@@ -98,7 +110,7 @@ public class viewClasificaciones extends JPanel {
         label2.setText("Ingrese el ID de una cria para clasificarla");
         label2.setFont(new Font("Century Gothic", Font.BOLD, 12));
         add(label2, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
 
         //---- label1 ----
@@ -142,7 +154,7 @@ public class viewClasificaciones extends JPanel {
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- tf_salud ----
-        tf_salud.setColumns(15);
+        tf_salud.setColumns(10);
         tf_salud.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         tf_salud.setEditable(false);
         add(tf_salud, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
@@ -167,7 +179,7 @@ public class viewClasificaciones extends JPanel {
         label6.setText("CLASIFICACION");
         label6.setFont(new Font("Century Gothic", Font.BOLD, 12));
         add(label6, new GridBagConstraints(0, 6, 2, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 5, 0), 0, 0));
 
         //---- label7 ----
@@ -187,7 +199,7 @@ public class viewClasificaciones extends JPanel {
             new Insets(0, 0, 5, 0), 0, 0));
 
         //---- label8 ----
-        label8.setText("Cantidad de grasa (Kg):");
+        label8.setText("Cantidad de grasa (%):");
         label8.setHorizontalAlignment(SwingConstants.RIGHT);
         label8.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         add(label8, new GridBagConstraints(0, 8, 1, 1, 0.0, 0.0,
@@ -238,6 +250,7 @@ public class viewClasificaciones extends JPanel {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
+    public DialogCriasSinClas getDialog(){return dialog;}
 
     public JTextField getTf_idCria() {
         return tf_idCria;

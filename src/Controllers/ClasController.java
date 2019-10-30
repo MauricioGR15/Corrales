@@ -6,8 +6,7 @@ import Views.viewClasificaciones;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.event.ChangeListener;
-import java.awt.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +17,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
     private viewClasificaciones view;
     private Routines rut;
     private Border original;
+    private String[] columnas = {"ID Cria"};
 
     public ClasController(viewClasificaciones view, Modelo model){
         this.model = model;
@@ -46,14 +46,40 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        JButton btn = (JButton)evt.getSource();
+        JButton btn = (JButton) evt.getSource();
 
-        if(btn == view.getBtn_buscar()){
+        if (btn == view.getBtn_buscar()) {
             onClicBuscar();
             return;
         }
-        if(btn == view.getBtn_clasificar()){
+        if (btn == view.getBtn_clasificar()) {
             onClicClasificar();
+            return;
+        }
+        if (btn == view.getBtn_sinClas()) {
+            onClicSinClas();
+            return;
+        }
+
+
+    }
+
+    private void onClicSinClas(){
+        DefaultTableModel dtm = new DefaultTableModel(null,columnas);
+        try{
+            ResultSet rs = model.select_CriasNoClasificadas();
+            String [] registros = new String[columnas.length];
+            while ((rs.next())){
+                registros[0] = rs.getInt("cria_id")+"";
+                dtm.addRow(registros);
+            }
+            view.getDialog().getTabla().setModel(dtm);
+            view.getDialog().setVisible(true);
+
+
+
+        }catch (SQLException e){
+
         }
 
 
@@ -70,20 +96,25 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
         int criaID = Integer.parseInt(view.getTf_idCria().getText());
 
         try {
-            model.sp_clasificacion(criaID,peso,colorM,cantGrasa,(short)grasaC);
+            model.sp_insertSensor();
+            model.sp_insertClasificacion(criaID,peso,colorM,cantGrasa,(short)grasaC);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         rut.msgExito();
-
-        System.out.println(peso +"\t" + cantGrasa +"\t" + colorM + "\t" + grasaC);
-
+        view.resetComponents();
+        view.getTf_idCria().requestFocus();
     }
 
     private void onClicBuscar(){
+
         ResultSet rs;
         int idCria = Integer.parseInt(view.getTf_idCria().getText());
         try {
+            if(criaClasificada(idCria))
+                return;
+
             rs = model.sp_selectCria(idCria);
             if(rs.next()){
                 int cria_id = rs.getInt("cria_id");
@@ -100,6 +131,15 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean criaClasificada(int idCria) throws SQLException {
+        ResultSet rs = model.sp_select_criaClasificada(idCria);
+        if(rs.next()){
+            rut.msgError("La cría "+rs.getInt("cria_id") +" ya fue clasificada");
+            return true;
+        }
+        return false;
     }
 
     private boolean checkComboColor(){

@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "0, 70, 0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
 			"$alignTop": true
@@ -85,19 +85,6 @@ new FormModel {
 				"gridy": 2
 				"hAlign": 0
 			} )
-			add( new FormComponent( "javax.swing.JRadioButton" ) {
-				name: "r_riesgo"
-				"text": "En riesgo"
-				"$buttonGroup": new FormReference( "group" )
-				"font": #SwingDerivedFont0
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 3
-				"gridy": 2
-				"hAlign": 0
-			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label9"
 				"text": "No de corral:"
@@ -137,6 +124,17 @@ new FormModel {
 				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_consultar"
+				"text": "Consultar"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 6
+				"hAlign": 0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_registrarCrias"
 				"text": "Registrar"
 				"font": #SwingDerivedFont0
@@ -144,9 +142,9 @@ new FormModel {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
+				"gridx": 2
 				"gridy": 6
-				"gridwidth": 2
+				"hAlign": 0
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 75, 25 )

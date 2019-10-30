@@ -11,9 +11,11 @@ new FormModel {
 			"$alignTop": true
 		} ) {
 			name: "this"
+			"preferredSize": new java.awt.Dimension( 477, 400 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "Crias enfermas y en riesgo"
+				"text": "Crias enfermas"
+				"font": new java.awt.Font( "Century Gothic", 1, 12 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridwidth": 3
 			} )
@@ -36,9 +38,18 @@ new FormModel {
 				"gridy": 1
 				"gridwidth": 4
 			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_actualizar"
+				"text": "Actualizar"
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 75, 40 )
-			"size": new java.awt.Dimension( 565, 395 )
+			"location": new java.awt.Point( 140, 40 )
+			"size": new java.awt.Dimension( 500, 395 )
 		} )
 	}
 }
