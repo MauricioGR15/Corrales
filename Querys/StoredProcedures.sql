@@ -1,40 +1,4 @@
 
-
-create procedure InsertCrias 
-	@id int,
-	@salud char,
-	@fechaL date,
-	@corralNo int,
-	@dietaID varchar
-	as
-	insert into CRIAS (cria_id, cria_salud,cria_fechaL,corral_no,dieta_id) values (@id, @salud, @fechaL, @corralNo,@dietaID);
-
-
-create procedure InsertCorrales
-	@no int, 
-	@capacidad smallint,
-	@tipo bit
-	as
-	insert into CORRALES values(@no, @capacidad, @tipo) 
-
-create procedure InsertClasificaciones
-	@peso smallint,
-	@colorMusc varchar(20),
-	@cantGrasa smallint,
-	@grasCobertura tinyint,
-	@criaId int
-	as
-	begin tran
-		insert into CLASIFICACIONES (cria_id, clas_peso,clas_cantGrasa,clas_colorMusculo,clas_grasCobertura ) 
-		values (@criaId, @peso,@cantGrasa,@colorMusc,@grasCobertura)
-
-		if @grasCobertura = 2 
-			begin
-			insert into GRASA_COB2 values (@criaId, (select top 1 sensor_id from sensores order by sensor_id desc))
-			end 
-	commit tran
-
-
 create procedure select_Cria 
 	@idCria int
 	as select cria_id, corral_no, cria_salud from CRIAS where cria_id = @idCria
@@ -53,38 +17,6 @@ create procedure update_CriasFechaS
 		update MOVIMIENTOS set mov_fechaS = @fechaS where cria_id = @idCria
 	COMMIT TRAN
 		
-
-
-
-create procedure insertSensores
-	@pulso tinyint,
-	@localizacion varchar(25)
-	as insert into SENSORES values (@pulso, @localizacion)
-
-create procedure insertMovimientos
-	@idCria int, 
-	@corralNo int,
-	@fechaE date
-	as
-	insert into Movimientos(cria_id, corral_no, mov_fechaE)  values (@idCria, @corralNo, @fechaE)
-
-create procedure insertGraCobertura
-	@idCria int, 
-	@idSensor int
-	as insert into GRASA_COB2 values (@idCria,@idSensor)
-
-create procedure insertEnfermas
-	@idCria int,
-	@tratId varchar(10),
-	@fechaIni date
-	as insert into ENFERMAS (cria_id, trat_id, enf_fechaIni) values (@idCria, @tratId, @fechaIni)
-
-create procedure insertTratamientos
-	@tratId varchar(10),
-	@fechaIni date,
-	@fechaFin date
-	as insert into TRATAMIENTOS values (@tratId, @fechaIni, @fechaFin)
-
 create procedure select_CriaClas
 	@idCria int
 	as select cria_id from dbo.CriaClasificada where cria_id = @idCria

@@ -20,7 +20,6 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     private viewCrias view;
     private  Routines rut;
     private final String columnas[] = {"ID Cria","Llegada","Salida","Salud","No Corral","ID Dieta"};
-    private String dietas[] = {"DIETA01","DIETA02","DIETA03","DIETA04","DIETA05"};
     private char salud[] = {'S','E'};
     private Border original;
 
@@ -146,18 +145,6 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     public int checkRadio(){
         if (view.getR_saludable().isSelected()) return 0;
         else return 1;
-    }
-
-    public String dietas(){
-        int d = view.getCb_dieta().getSelectedIndex();
-        switch (d){
-            case 0: break;
-            case 1: return dietas[0];
-            case 2: return dietas[1];
-            case 3: return dietas[2];
-            case 4: return dietas[3];
-        }
-        return"";
     }
 
     @Override
