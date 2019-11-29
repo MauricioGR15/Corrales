@@ -17,5 +17,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mssql-jdbc-7.4.1.jre12" level="project" />
     <orderEntry type="library" name="LGoodDatePicker-10.3.1" level="application" />
+    <orderEntry type="library" name="darcula-1.0.0" level="application" />
+    <orderEntry type="library" name="JGoodies Forms" level="project" />
+    <orderEntry type="library" name="IntelliJ IDEA GridLayout" level="project" />
+    <orderEntry type="library" name="MigLayout" level="project" />
   </component>
 </module>

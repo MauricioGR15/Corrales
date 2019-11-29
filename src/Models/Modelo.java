@@ -1,8 +1,6 @@
 package Models;
 
 import Support.Routines;
-
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,103 +9,101 @@ public class Modelo {
 
     private Statement conection;
     private String query;
-    private Routines rut = new Routines();
-    private String [] localizaciones = {"Culiacán","Mazatlán","Los Mochis"};
+    private Routines rut;
+    private String [] localizaciones;
 
     public Modelo(Statement con){
         conection = con;
+        rut = new Routines();
+        localizaciones = new String[]{"'Culiacán'","'Mazatlán'","'Los Mochis'"};
     }
-
 
     //PROCEDIMIENTOS ALMACENADOS PARA INSERTAR
 
-    public void sp_insertCorrales(int noCorral, short type, int capacity) throws SQLException {
-        query = "exec InsertCorrales @no ="+noCorral+", @capacidad ="+capacity+", @tipo ="+type;
-        conection.execute(query);
-    }
-
-    public void sp_insertCrias(int noCria, char health, String date, int noCorral, String dieta) throws  SQLException{
-        query ="exec InsertCrias @id ="+noCria+", @salud='"+health+"', @fechaL = '"+date+"' , @corralNo ="+noCorral+", @dietaID = '"+dieta+"'";
-        conection.execute(query);
-    }
-
-    public void insertCrias(int noCria, char health, String date,int noCorral, String dieta) throws  SQLException{
-        query = "insert into crias (cria_id,cria_salud,cria_fechaL,corral_no,dieta_id) values (";
-        String cad2 = query + noCria + ",'"+health+"','"+date+"',"+noCorral+",'"+dieta+"')";
-        conection.execute(cad2);
-
-    }
-
-    public void sp_insertClasificacion(int noCria, short peso, String colorM, short cantG, short grasaC) throws SQLException {
-        query ="exec InsertClasificaciones @criaId ="+noCria+", @peso = '"+peso+"', @cantGrasa ="+cantG+", @colorMusc = '"+ colorM+ "' ,@grasCobertura ="+grasaC;
-        conection.execute(query);
-    }
-
-    public void sp_insertMovimientos(int idCria, int noCorral, String fechaE) throws SQLException {
-        query = "exec insertMovimientos @idCria =" +idCria+", @corralNo =" +noCorral+ ", @fechaE = '" +fechaE+"'";
-        conection.execute(query);
-    }
-
-    public void sp_insertSensor() throws SQLException {
-        query = "exec insertSensores @pulso =" + rut.nextInt(60,120) + ", @localizacion ='" + localizaciones[rut.nextInt(2,0)] + "'";
-        conection.execute(query);
-    }
-
-    //CONSULTAS CON PARAMETROS
-
-    public ResultSet sp_select_criaClasificada(int idCria) throws SQLException {
-        query = "exec select_CriaClas @idCria = " + idCria;
+    public ResultSet pa_insertCorrales(int noCorral, boolean type) throws SQLException {
+        query = "exec pa_InsertCorrales "+noCorral+","+type;
         return conection.executeQuery(query);
     }
 
-    public ResultSet sp_selectCria(int idCria) throws SQLException {
-        query ="exec select_Cria @idCria = " + idCria;
+    public ResultSet pa_insertCrias(int noCria, String date, boolean health, int noCorral, String dieta) throws  SQLException{
+        query ="exec pa_InsertCria "+noCria+", '"+date+"',"+health+" ,"+noCorral+", '"+dieta+"'";
         return conection.executeQuery(query);
     }
 
-    public ResultSet sp_selectCriasClasificadas(int idCria) throws  SQLException{
-        query = "exec select_CriaClasificada @idCria = " + idCria;
+
+    public ResultSet pa_insertClasificaciones(int noCria, short peso, String colorM, short cantG, short grasaC, int signoV) throws SQLException {
+        query ="exec pa_InsertClasificaciones " + noCria +"," +peso+ ",'" +colorM+"'," + cantG +","+grasaC+
+                "," + signoV + "," +
+                localizaciones[rut.nextInt(2,0)] ;
         return conection.executeQuery(query);
     }
 
-    public ResultSet sp_select_noCorral(int idCorral) throws  SQLException{
-        query ="select corral_tipo from corrales where corral_no =" +idCorral;
+    public ResultSet pa_procesarCria(int idCria,String fechaS) throws SQLException {
+        query ="exec pa_ProcesarCria " + idCria + ",'" + fechaS +"'";
+        return conection.executeQuery(query);
+    }
+
+    public ResultSet pa_sacrificarCria(int idCria,String fechaS) throws SQLException {
+        query ="exec pa_SacrificarCria " + idCria + ",'" + fechaS +"'";
         return conection.executeQuery(query);
     }
 
     //CONSULTAS
-
-    public ResultSet sp_selectCriasEnfermas() throws SQLException{
-        query = "select * from CriasEnfermas";
+    public ResultSet select_corrales() throws SQLException {
+        query="select * from CORRALES";
         return conection.executeQuery(query);
     }
 
-    public ResultSet select_dietas() throws SQLException {
-        query = "select dieta_id from dietas";
+    public ResultSet select_corralesSanos() throws SQLException {
+        query="select corral_no from view_corralSano";
         return conection.executeQuery(query);
     }
 
-    //UPDATES
+    public ResultSet select_corralesNoSanos() throws SQLException {
+        query="select corral_no from view_corralNoSano";
+        return conection.executeQuery(query);
+    }
 
-    public void sp_updateCriasFechaS(int idCria, String fechaS) throws SQLException {
-        query = "exec update_CriasFechaS @idCria =" + idCria + ", @fechaS='"+fechaS+"'";
-        conection.execute(query);
+    //CONSULTAS CON PARAMETROS
+    public ResultSet pa_selectCriaSinClas (int id) throws SQLException {
+        query="exec pa_select_IdcriaSinClas " + id;
+        return conection.executeQuery(query);
+    }
+
+    public ResultSet pa_selectCriasClasificadas(int idCria) throws  SQLException{
+        query = "exec pa_select_CriaClasificada " + idCria;
+        return conection.executeQuery(query);
     }
 
    //VISTAS
 
+    public ResultSet select_CriasSinClas(int idCria) throws SQLException{
+        query = "select * from view_CriasSinClas where cria_id = " + idCria;
+        return conection.executeQuery(query);
+    }
+
     public ResultSet select_CriasNoClasificadas() throws SQLException {
-        query = "select cria_id from dbo.CriasNoClas";
+        query = "select cria_id from view_CriasSinClas ";
+        return conection.executeQuery(query);
+    }
+
+    public ResultSet select_dietasNormales() throws SQLException{
+        query = "select dieta_id from dbo.view_dietasNormales";
+        return conection.executeQuery(query);
+    }
+
+    public ResultSet select_dietasEspeciales() throws SQLException{
+        query = "select dieta_id from dbo.view_dietasEspeciales";
         return conection.executeQuery(query);
     }
 
     public ResultSet select_VistaCrias() throws  SQLException{
-        query = "select * from dbo.VistaCrias order by cria_fechaS";
+        query = "select * from dbo.view_Crias order by cria_fechaL";
         return conection.executeQuery(query);
     }
 
     public ResultSet selectVistaCriasClasificadasSinProcesar() throws SQLException {
-        query = "select * from VistaCriasClasSinProcesar";
+        query = "select * from view_CriasClasSinProcesar";
         return conection.executeQuery(query);
     }
 

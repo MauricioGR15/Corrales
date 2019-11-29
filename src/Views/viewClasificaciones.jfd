@@ -4,17 +4,18 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
-			"$hGap": 5
-			"$vGap": 5
+			"$columnSpecs": "175, 166, 40"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+			"$hGap": 8
+			"$vGap": 10
 			"$alignTop": true
 		} ) {
 			name: "this"
+			"font": &Font0 new java.awt.Font( "Arial Rounded MT Bold", 0, 14 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Ingrese el ID de una cria para clasificarla"
-				"font": &Font0 new java.awt.Font( "Century Gothic", 1, 12 )
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"gridwidth": 2
@@ -24,14 +25,14 @@ new FormModel {
 				name: "label1"
 				"text": "ID:"
 				"horizontalAlignment": 4
-				"font": &Font1 new java.awt.Font( "Century Gothic", 0, 12 )
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 2
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf_idCria"
 				"columns": 10
-				"font": #Font1
+				"font": #Font0
 				"text": "0"
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -45,14 +46,14 @@ new FormModel {
 				name: "label3"
 				"text": "Corral:"
 				"horizontalAlignment": 4
-				"font": #Font1
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 3
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf_corral"
 				"columns": 10
-				"font": #Font1
+				"font": #Font0
 				"editable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -66,14 +67,14 @@ new FormModel {
 				name: "label5"
 				"text": "Salud:"
 				"horizontalAlignment": 4
-				"font": #Font1
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 4
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "tf_salud"
 				"columns": 10
-				"font": #Font1
+				"font": #Font0
 				"editable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
@@ -84,25 +85,16 @@ new FormModel {
 				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "btn_sinClas"
-				"text": "Crias sin clasificar"
-				"font": new java.awt.Font( "Century Gothic", 0, 12 )
-				auxiliary() {
-					"JavaCodeGenerator.variableGetter": true
-				}
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 5
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_buscar"
-				"text": "Buscar"
-				"font": #Font1
+				"font": #Font0
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\searchIcon.png" )
+				"preferredSize": new java.awt.Dimension( 35, 30 )
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 5
-				"hAlign": 0
+				"hAlign": 2
 				"gridx": 1
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -118,55 +110,79 @@ new FormModel {
 				name: "label7"
 				"text": "Peso:"
 				"horizontalAlignment": 4
-				"font": #Font1
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 7
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "tf_peso"
-				"columns": 5
-				"font": #Font1
-				"text": "0"
+			add( new FormComponent( "javax.swing.JSlider" ) {
+				name: "sld_peso"
+				"maximum": 300
+				"minimum": 40
+				"majorTickSpacing": 25
+				"minorTickSpacing": 5
+				"value": 125
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 7
-				"hAlign": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbl_peso"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 2
+				"gridy": 7
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label8"
 				"text": "Cantidad de grasa (%):"
 				"horizontalAlignment": 4
-				"font": #Font1
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 8
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "tf_cantGra"
-				"columns": 5
-				"font": #Font1
-				"text": "0"
+			add( new FormComponent( "javax.swing.JSlider" ) {
+				name: "sld_grasa"
+				"majorTickSpacing": 20
+				"minorTickSpacing": 2
+				"value": 10
+				"maximum": 40
+				"minimum": 2
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
 				"gridy": 8
-				"hAlign": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbl_grasa"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 2
+				"gridy": 8
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label9"
 				"text": "Color de músculo:"
 				"horizontalAlignment": 4
-				"font": #Font1
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 9
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "cb_colorMusc"
-				"font": #Font1
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -178,14 +194,14 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Grasa de cobertura:"
-				"font": #Font1
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 10
 				"hAlign": 4
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {
 				name: "spinnerGraCob"
-				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -195,20 +211,30 @@ new FormModel {
 				"hAlign": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "btn_clasificar"
-				"text": "Clasificar"
-				"font": #Font1
+				name: "btn_sinClas"
+				"text": "Crias sin clasificar"
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 11
-				"hAlign": 0
-				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_clasificar"
+				"text": "Clasificar"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 11
+				"hAlign": 2
+				"gridx": 1
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 55, 25 )
-			"size": new java.awt.Dimension( 540, 370 )
+			"size": new java.awt.Dimension( 540, 435 )
 		} )
 	}
 }

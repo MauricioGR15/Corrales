@@ -4,7 +4,10 @@
 
 package Views;
 
+import com.bulenkov.darcula.DarculaLaf;
+
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicLookAndFeel;
 import java.awt.*;
 
 /**
@@ -17,15 +20,15 @@ public class VistaPrincipal extends JFrame {
     private viewClasificaciones pnl_clas;
     private viewProcesar pnl_procesar;
     private viewEnfermas pnl_enfermas;
-
+    private viewCuarentenas pnl_tratamientos;
     public VistaPrincipal() {
 
         try{
-
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-
+//            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            BasicLookAndFeel darcula = new DarculaLaf();
+            UIManager.setLookAndFeel(darcula);
         }
         catch (Exception e)
         {
@@ -33,29 +36,39 @@ public class VistaPrincipal extends JFrame {
         }
 
         setTitle("Terneras");
-//        setSize(500,500);
+
 //        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
         initContent();
-        pack();
+//        pack();
         setLocationRelativeTo(null);
+        setPreferredSize(new Dimension(500,500));
         setVisible(true);
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - Mauricio
         tabbed = new JTabbedPane();
 
-        //======== this =======
-        var contentP = getContentPane();
-        contentP.setLayout(new BorderLayout());
-        contentP.add(tabbed, BorderLayout.CENTER);
+        //======== this ========
+        setTitle("Corrales Ternero");
+        setIconImage(new ImageIcon("C:\\Git\\Corrales\\Imgs\\cowIcon.png").getImage());
+        setMinimumSize(new Dimension(650, 650));
+        var contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+
+        //======== tabbed ========
+        {
+            tabbed.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
+        }
+        contentPane.add(tabbed, BorderLayout.CENTER);
         pack();
         setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
+
 
 
 
@@ -65,6 +78,11 @@ public class VistaPrincipal extends JFrame {
         tabbed.add("CLASIFICAR",pnl_clas = new viewClasificaciones());
         tabbed.add("PROCESAR",pnl_procesar = new viewProcesar());
         tabbed.add("ENFERMAS",pnl_enfermas = new viewEnfermas());
+        tabbed.add("TRATAMIENTOS",pnl_tratamientos = new viewCuarentenas());
+    }
+
+    public viewCuarentenas getPnl_tratamientos() {
+        return pnl_tratamientos;
     }
 
     public viewCorrales getPnl_corrales() {
@@ -82,7 +100,7 @@ public class VistaPrincipal extends JFrame {
     public viewEnfermas getPnl_enfermas(){return  pnl_enfermas;}
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - Mauricio
     private JTabbedPane tabbed;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

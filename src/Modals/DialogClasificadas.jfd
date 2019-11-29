@@ -5,9 +5,11 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
+			"minimumSize": new java.awt.Dimension( 30, 40 )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane"
-				"preferredSize": new java.awt.Dimension( 350, 400 )
+				"preferredSize": new java.awt.Dimension( 275, 200 )
+				"minimumSize": new java.awt.Dimension( 275, 200 )
 				add( new FormComponent( "javax.swing.JTable" ) {
 					name: "table"
 					auxiliary() {
@@ -16,6 +18,19 @@ new FormModel {
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_actualizar"
+				"maximumSize": new java.awt.Dimension( 40, 30 )
+				"minimumSize": new java.awt.Dimension( 40, 30 )
+				"preferredSize": new java.awt.Dimension( 40, 30 )
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\reloadIcon.png" )
+				"selectedIcon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "South"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 75, 35 )

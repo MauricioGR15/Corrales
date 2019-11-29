@@ -34,6 +34,7 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
         view.getBtn_procesar().addActionListener(this);
         view.getBtn_clas().addActionListener(this);
         view.getBtn_clas().addActionListener(this);
+        view.getClasificadas().getBtn_actualizar().addActionListener(this);
     }
 
 
@@ -41,6 +42,11 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
     public void actionPerformed(ActionEvent evt) {
 
         JButton button = (JButton)evt.getSource();
+
+        if(button == view.getClasificadas().getBtn_actualizar()){
+            onClicClasificadas();
+            return;
+        }
 
         if(view.getTf_idCria().getText().isEmpty()) {
             rut.msgError("El ID de cría está vacío");
@@ -59,6 +65,15 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
             return;
         }
 
+        if(button == view.getBtn_sacrificar()){
+            if(view.getDp_fechaS().getText().isEmpty()){
+                rut.msgError("Seleccione una fecha válida");
+                return;
+            }
+            onClicSacrificar();
+            return;
+        }
+
         if(button == view.getBtn_clas()){
             onClicClasificadas();
             return;
@@ -74,7 +89,7 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
                 registros[0] = rs.getInt("cria_id")+"";
                 registros[1] = rs.getString("cria_fechaL");
                 registros[2] = rs.getInt("clas_grasCobertura")+"";
-                registros[3] = rut.convertSalud(rs.getString("cria_salud").charAt(0));
+                registros[3] = rs.getString("cria_salud");
                 dtm.addRow(registros);
             }
             view.getClasificadas().getTable().setModel(dtm);
@@ -86,17 +101,32 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
 
     private void onClicProcesar(){
         int idCria = Integer.parseInt(view.getTf_idCria().getText());
+        String fechaS = view.getDp_fechaS().getDate().toString();
+        int res = 0;
         try{
-            String fechaS = view.getDp_fechaS().getDate().toString();
             System.out.println(fechaS);
-            model.sp_updateCriasFechaS(idCria,fechaS);
+            ResultSet rs = model.pa_procesarCria(idCria,fechaS);
+            rs.next();
+            res = rs.getInt(1);
         }catch (SQLException e){
-            rut.msgError("La fecha de salida no puede ser menor que la fecha de llegada de la cría");
-            return;
         }
+        finally {
+            view.getMessageProcesar(res);
+        }
+    }
 
-        rut.msgExito();
-
+    private void onClicSacrificar(){
+        int idCria = Integer.parseInt(view.getTf_idCria().getText());
+        String fechaS = view.getDp_fechaS().getDate().toString();
+        int res = 0;
+        try{
+            ResultSet rs = model.pa_sacrificarCria(idCria,fechaS);
+            rs.next();
+            res = rs.getInt(1);
+        } catch (SQLException e) { }
+        finally{
+            view.getMessageSacrificar(res);
+        }
     }
 
     private void onClicBuscar(){
@@ -104,7 +134,7 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
         int idCria = Integer.parseInt(view.getTf_idCria().getText());
 
         try{
-            rs = model.sp_selectCriasClasificadas(idCria);
+            rs = model.pa_selectCriasClasificadas(idCria);
             if(rs.next()){
                 int corralNo = rs.getInt("corral_no");
                 String cria_fechaL = rs.getString("cria_fechaL");
@@ -113,11 +143,11 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
 
                 view.getTf_fechaL().setText(cria_fechaL);
                 view.getTf_noCorral().setText(corralNo+"");
-                view.getTf_salud().setText(rut.salud(cria_salud));
+                view.getTf_salud().setText(cria_salud);
                 view.getTf_grasaCob().setText(clas_grasaCob+"");
             }
             else
-                rut.msgError("Este ID no ha sido registrado o es repetido");
+                rut.msgError("Este ID no ha sido registrado o no está clasificado");
         }catch(SQLException e){
             rut.msgError(e.getMessage());
         }

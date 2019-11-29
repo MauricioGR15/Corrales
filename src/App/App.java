@@ -23,23 +23,12 @@ public class App {
 		ClasController conClasificaciones = new ClasController(principal.getPnl_clas(),model);
 		ProcesarController conProcesar = new ProcesarController(principal.getPnl_procesar(),model);
 		EnfermasController conEnfermas = new EnfermasController(principal.getPnl_enfermas(),model);
+		CuarController conTratamientos = new CuarController(principal.getPnl_tratamientos(),model);
 
 		if(conexion == null) {
 			JOptionPane.showMessageDialog(null, "conexion no realizada","*********", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-
-//		String dieta1 = "insert into DIETAS values ('DIETA01',100,'Heno de alfalfa')";
-//		String dieta2 = "insert into DIETAS values ('DIETA02',150,'Ensilaje')";
-//		String dieta3 = "insert into DIETAS values ('DIETA03',200,'Pasto')";
-//		String dieta4 = "insert into DIETAS values ('DIETA04',85,'Maíz')";
-//		conexion.execute(dieta1);
-//		conexion.execute(dieta2);
-//		conexion.execute(dieta3);
-//		conexion.execute(dieta4);
-
-//		JOptionPane.showMessageDialog(null, "Se realizo la conexion");
-
 	}
 
 }

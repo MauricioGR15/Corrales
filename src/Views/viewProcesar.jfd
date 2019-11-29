@@ -4,17 +4,18 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 0, 0, 0, 0"
+			"$columnSpecs": "0, 0, 0"
 			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
-			"$hGap": 5
-			"$vGap": 5
+			"$hGap": 10
+			"$vGap": 8
 			"$alignTop": true
 		} ) {
 			name: "this"
+			"font": &Font0 new java.awt.Font( "Arial Rounded MT Bold", 0, 14 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "ID cría:"
-				"font": &Font0 new java.awt.Font( "Century Gothic", 0, 12 )
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 1
 				"hAlign": 4
@@ -35,8 +36,9 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_Buscar"
-				"text": "Buscar"
 				"font": #Font0
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\searchIcon.png" )
+				"preferredSize": new java.awt.Dimension( 35, 30 )
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -44,7 +46,6 @@ new FormModel {
 				"gridy": 2
 				"hAlign": 0
 				"gridx": 1
-				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -139,29 +140,30 @@ new FormModel {
 				"text": "Fecha de Salida:"
 				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 8
+				"gridy": 7
 			} )
 			add( new FormComponent( "com.github.lgooddatepicker.components.DatePicker" ) {
 				name: "dp_fechaS"
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 8
+				"gridy": 7
 				"hAlign": 2
 				"gridwidth": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
+				name: "btn_sacrificar"
 				"text": "Sacrificar"
-				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 9
+				"gridy": 8
 				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -173,25 +175,25 @@ new FormModel {
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 2
-				"gridy": 9
+				"gridy": 8
 				"hAlign": 0
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_clas"
 				"text": "Crias clasificadas"
-				"font": new java.awt.Font( "Century Gothic", 0, 12 )
+				"font": #Font0
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 1
-				"gridy": 10
+				"gridy": 9
 				"hAlign": 0
 				"gridwidth": 2
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 95, 70 )
-			"size": new java.awt.Dimension( 400, 340 )
+			"location": new java.awt.Point( 90, 20 )
+			"size": new java.awt.Dimension( 400, 405 )
 		} )
 	}
 }
