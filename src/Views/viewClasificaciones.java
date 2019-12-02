@@ -5,7 +5,7 @@
 package Views;
 
 import Modals.DialogCriasSinClas;
-import Support.Routines;
+import Support.Rut;
 
 import java.awt.*;
 import javax.swing.*;
@@ -22,7 +22,10 @@ public class viewClasificaciones extends JPanel {
 
 
 
-    public viewClasificaciones() {
+    private viewPrincipal viewP;
+
+    public viewClasificaciones(viewPrincipal viewP) {
+        this.viewP =viewP;
         spinnerModel = new SpinnerNumberModel(1,0,3,1);
         initComponents();
         fillSpinner();
@@ -32,10 +35,16 @@ public class viewClasificaciones extends JPanel {
         lbl_peso.setText(sld_peso.getValue()+"");
     }
 
+
+
+    public viewPrincipal getViewP(){
+        return viewP;
+    }
+
     public void getMessage(int x){
         switch (x){
-            case 0: Routines.msgError("Error al momento de clasificar"); return;
-            default: Routines.msgExito(); return;
+            case 0: Rut.msgError("Error al momento de clasificar"); return;
+            default: Rut.msgExito(); return;
         }
     }
 
@@ -75,9 +84,14 @@ public class viewClasificaciones extends JPanel {
         return lbl_grasa;
     }
 
+    public JButton getBtn_home() {
+        return btn_home;
+    }
+
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Mauricio
+    private JButton btn_home;
     private JLabel label2;
     private JLabel label1;
     private JTextField tf_idCria;
@@ -104,6 +118,7 @@ public class viewClasificaciones extends JPanel {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Mauricio
+        btn_home = new JButton();
         label2 = new JLabel();
         label1 = new JLabel();
         tf_idCria = new JTextField();
@@ -128,17 +143,26 @@ public class viewClasificaciones extends JPanel {
 
         //======== this ========
         setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder
+        ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border
+        .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt
+        . Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void
+        propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+        ;} } );
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).columnWidths = new int[] {183, 174, 40};
+        ((GridBagLayout)getLayout()).columnWidths = new int[] {169, 81, 40};
         ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+
+        //---- btn_home ----
+        btn_home.setIcon(new ImageIcon("C:\\Git\\Corrales\\Imgs\\home.png"));
+        btn_home.setBorder(null);
+        btn_home.setBorderPainted(false);
+        btn_home.setContentAreaFilled(false);
+        btn_home.setFocusable(false);
+        add(btn_home, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 10, 0), 0, 50));
 
         //---- label2 ----
         label2.setText("Ingrese el ID de una cria para clasificarla");
@@ -199,6 +223,7 @@ public class viewClasificaciones extends JPanel {
         btn_buscar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
         btn_buscar.setIcon(new ImageIcon("C:\\Git\\Corrales\\Imgs\\searchIcon.png"));
         btn_buscar.setPreferredSize(new Dimension(35, 30));
+        btn_buscar.setFocusable(false);
         add(btn_buscar, new GridBagConstraints(1, 5, 1, 1, 0.0, 0.0,
             GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 10, 8), 0, 0));
@@ -290,16 +315,18 @@ public class viewClasificaciones extends JPanel {
         //---- btn_sinClas ----
         btn_sinClas.setText("Crias sin clasificar");
         btn_sinClas.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-        add(btn_sinClas, new GridBagConstraints(0, 11, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 10, 8), 0, 0));
+        btn_sinClas.setFocusable(false);
+        add(btn_sinClas, new GridBagConstraints(0, 11, 3, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 10, 0), 0, 0));
 
         //---- btn_clasificar ----
         btn_clasificar.setText("Clasificar");
         btn_clasificar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-        add(btn_clasificar, new GridBagConstraints(1, 11, 1, 1, 0.0, 0.0,
-            GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
-            new Insets(0, 0, 10, 8), 0, 0));
+        btn_clasificar.setFocusable(false);
+        add(btn_clasificar, new GridBagConstraints(0, 12, 3, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 0, 0), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

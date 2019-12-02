@@ -1,0 +1,248 @@
+JFDML JFormDesigner: "7.0.0.6.255" Java: "11.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "51, 45, 72, 0, 46"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
+			"$hGap": 10
+			"$vGap": 10
+			"$alignTop": true
+		} ) {
+			name: "this"
+			"font": new java.awt.Font( "Arial Rounded MT Bold", 0, 12 )
+			"minimumSize": new java.awt.Dimension( 600, 600 )
+			"background": new javax.swing.plaf.ColorUIResource( 238, 238, 238 )
+			auxiliary() {
+				"JavaCodeGenerator.variableGetter": true
+			}
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Corrales Ternero"
+				"font": new java.awt.Font( "Arial Rounded MT Bold", 0, 36 )
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\cow50.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridwidth": 5
+				"hAlign": 0
+				"ipady": 100
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\fence.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_corrales"
+				"text": "Registrar corrales"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": &Font0 new java.awt.Font( "Arial Rounded MT Bold", 0, 14 )
+				"maximumSize": new java.awt.Dimension( 206, 35 )
+				"minimumSize": new java.awt.Dimension( 206, 35 )
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+				"hAlign": 2
+				"gridx": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\cow.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_crias"
+				"text": "Registrar crías"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": #Font0
+				"maximumSize": new java.awt.Dimension( 206, 35 )
+				"minimumSize": new java.awt.Dimension( 206, 35 )
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+				"hAlign": 2
+				"gridx": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\list.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 3
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_clasificar"
+				"text": "Clasificar"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": #Font0
+				"maximumSize": &Dimension0 new java.awt.Dimension( 206, 35 )
+				"minimumSize": &Dimension1 new java.awt.Dimension( 206, 35 )
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 3
+				"hAlign": 2
+				"gridx": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\next.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 4
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_procesar"
+				"text": "Procesar/Sacrificar"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": #Font0
+				"maximumSize": #Dimension0
+				"minimumSize": #Dimension1
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 2
+				"gridy": 4
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\marker.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 5
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_cuarentenas"
+				"text": "Cuarentenas"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": #Font0
+				"maximumSize": new java.awt.Dimension( 206, 35 )
+				"minimumSize": new java.awt.Dimension( 206, 35 )
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 5
+				"hAlign": 2
+				"gridx": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\two.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 6
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_gc2"
+				"text": "Grasa cobertura 2"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": #Font0
+				"maximumSize": new java.awt.Dimension( 206, 35 )
+				"minimumSize": new java.awt.Dimension( 206, 35 )
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 6
+				"hAlign": 2
+				"gridx": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\informe.png" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 7
+				"hAlign": 4
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_informes"
+				"text": "Informes"
+				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"font": #Font0
+				"maximumSize": new java.awt.Dimension( 206, 35 )
+				"minimumSize": new java.awt.Dimension( 206, 35 )
+				"preferredSize": new java.awt.Dimension( 170, 35 )
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 7
+				"hAlign": 2
+				"gridx": 2
+				"gridwidth": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_salir"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\exit.png" )
+				"preferredSize": new java.awt.Dimension( 35, 35 )
+				"maximumSize": new java.awt.Dimension( 35, 30 )
+				"minimumSize": new java.awt.Dimension( 35, 30 )
+				"focusable": false
+				"borderPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 8
+				"hAlign": 4
+				"gridx": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_info"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\info.png" )
+				"preferredSize": new java.awt.Dimension( 35, 35 )
+				"maximumSize": new java.awt.Dimension( 35, 30 )
+				"minimumSize": new java.awt.Dimension( 35, 30 )
+				"focusable": false
+				"borderPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 3
+				"gridy": 8
+				"hAlign": 2
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 20, 0 )
+			"size": new java.awt.Dimension( 500, 510 )
+		} )
+	}
+}

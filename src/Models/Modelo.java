@@ -1,6 +1,6 @@
 package Models;
 
-import Support.Routines;
+import Support.Rut;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,12 +9,12 @@ public class Modelo {
 
     private Statement conection;
     private String query;
-    private Routines rut;
+    private Rut rut;
     private String [] localizaciones;
 
     public Modelo(Statement con){
         conection = con;
-        rut = new Routines();
+        rut = new Rut();
         localizaciones = new String[]{"'Culiacán'","'Mazatlán'","'Los Mochis'"};
     }
 
@@ -48,7 +48,13 @@ public class Modelo {
         return conection.executeQuery(query);
     }
 
+    public ResultSet pa_movimientosCorrales(int id, int corralNvo, boolean salud, String dietaNva, String fechaMov, String fechaEnfIni) throws SQLException {
+        query = "exec pa_obtenerCodMensajes " +id+ "," +corralNvo+"," + salud + ",'" + dietaNva+"','" + fechaMov +"','"+fechaEnfIni+"'";
+        return conection.executeQuery(query);
+    }
+
     //CONSULTAS
+
     public ResultSet select_corrales() throws SQLException {
         query="select * from CORRALES";
         return conection.executeQuery(query);
@@ -65,6 +71,11 @@ public class Modelo {
     }
 
     //CONSULTAS CON PARAMETROS
+    public ResultSet pa_selectCriaParaMover(int id) throws SQLException{
+        query="select * from view_prepareData where cria_id = " +id ;
+        return conection.executeQuery(query);
+    }
+
     public ResultSet pa_selectCriaSinClas (int id) throws SQLException {
         query="exec pa_select_IdcriaSinClas " + id;
         return conection.executeQuery(query);
@@ -76,6 +87,20 @@ public class Modelo {
     }
 
    //VISTAS
+    public ResultSet select_infoGC2() throws  SQLException{
+        query="select * from view_infoGrasaC2";
+        return  conection.executeQuery(query);
+    }
+
+    public ResultSet select_informe() throws  SQLException{
+        query="select * from view_informe";
+        return conection.executeQuery(query);
+    }
+
+    public ResultSet select_diasEnfermas() throws SQLException {
+        query="select * from view_diasEnfermas";
+        return conection.executeQuery(query);
+    }
 
     public ResultSet select_CriasSinClas(int idCria) throws SQLException{
         query = "select * from view_CriasSinClas where cria_id = " + idCria;

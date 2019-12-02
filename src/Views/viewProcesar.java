@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import Modals.DialogClasificadas;
-import Support.Routines;
+import Support.Rut;
 import com.github.lgooddatepicker.components.*;
 
 /**
@@ -17,9 +17,11 @@ import com.github.lgooddatepicker.components.*;
 public class viewProcesar extends JPanel {
 
     private DialogClasificadas clasificadas;
+    private viewPrincipal viewP;
 
-    public viewProcesar() {
+    public viewProcesar(viewPrincipal viewP) {
         initComponents();
+        this.viewP = viewP;
         clasificadas = new DialogClasificadas();
     }
 
@@ -31,11 +33,16 @@ public class viewProcesar extends JPanel {
         return btn_sacrificar;
     }
 
+    public JButton getBtn_home() {
+        return btn_home;
+    }
+
 
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Mauricio
+        btn_home = new JButton();
         label1 = new JLabel();
         tf_idCria = new JTextField();
         btn_Buscar = new JButton();
@@ -55,14 +62,25 @@ public class viewProcesar extends JPanel {
 
         //======== this ========
         setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
-        0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
-        . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-        red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
-        beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder
+        ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border
+        .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
+        . Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void
+        propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+        ;} } );
         setLayout(new GridBagLayout());
-        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+        ((GridBagLayout)getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+
+        //---- btn_home ----
+        btn_home.setIcon(new ImageIcon("C:\\Git\\Corrales\\Imgs\\home.png"));
+        btn_home.setBorder(null);
+        btn_home.setBorderPainted(false);
+        btn_home.setContentAreaFilled(false);
+        btn_home.setFocusable(false);
+        add(btn_home, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0,
+            GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+            new Insets(0, 0, 8, 0), 0, 50));
 
         //---- label1 ----
         label1.setText("ID cr\u00eda:");
@@ -83,6 +101,7 @@ public class viewProcesar extends JPanel {
         btn_Buscar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
         btn_Buscar.setIcon(new ImageIcon("C:\\Git\\Corrales\\Imgs\\searchIcon.png"));
         btn_Buscar.setPreferredSize(new Dimension(35, 30));
+        btn_Buscar.setFocusable(false);
         add(btn_Buscar, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 8, 10), 0, 0));
@@ -163,6 +182,7 @@ public class viewProcesar extends JPanel {
         //---- btn_sacrificar ----
         btn_sacrificar.setText("Sacrificar");
         btn_sacrificar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+        btn_sacrificar.setFocusable(false);
         add(btn_sacrificar, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 8, 10), 0, 0));
@@ -170,6 +190,7 @@ public class viewProcesar extends JPanel {
         //---- btn_procesar ----
         btn_procesar.setText("Procesar");
         btn_procesar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+        btn_procesar.setFocusable(false);
         add(btn_procesar, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
             new Insets(0, 0, 8, 0), 0, 0));
@@ -177,14 +198,16 @@ public class viewProcesar extends JPanel {
         //---- btn_clas ----
         btn_clas.setText("Crias clasificadas");
         btn_clas.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+        btn_clas.setFocusable(false);
         add(btn_clas, new GridBagConstraints(1, 9, 2, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-            new Insets(0, 0, 8, 0), 0, 0));
+            new Insets(0, 0, 0, 0), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Mauricio
+    private JButton btn_home;
     private JLabel label1;
     private JTextField tf_idCria;
     private JButton btn_Buscar;
@@ -206,22 +229,26 @@ public class viewProcesar extends JPanel {
 
     public void getMessageProcesar(int x){
         switch (x){
-            case 0: Routines.msgError("Cría saludable no se puede procesar"); return;
-            case 1: Routines.msgError("La fecha es menor a los 5 meses de su llegada");
-            case 2: Routines.msgError("Error al insertar");
-            case 4: Routines.msgError("La cria no ha sido clasificada");
-            default: Routines.msgExito(); return;
+            case 0: Rut.msgError("Cría saludable no se puede procesar"); return;
+            case 1: Rut.msgError("La fecha es menor a los 5 meses de su llegada");
+            case 2: Rut.msgError("Error al insertar");
+            case 4: Rut.msgError("La cria no ha sido clasificada");
+            default: Rut.msgExito(); return;
         }
     }
 
     public void getMessageSacrificar(int x){
         switch (x){
-            case 0: Routines.msgError("Cría saludable no se puede sacrificar");return;
-            case 1: Routines.msgError("No han transcurrido 40 dias de enfermedad de la cría");return;
-            case 2: Routines.msgError("No se inserto correctamente");return;
-            case 4: Routines.msgError("La cria no ha sido clasificada");return;
-            default: Routines.msgExito();
+            case 0: Rut.msgError("Cría saludable no se puede sacrificar");return;
+            case 1: Rut.msgError("No han transcurrido 40 dias de enfermedad de la cría");return;
+            case 2: Rut.msgError("No se inserto correctamente");return;
+            case 4: Rut.msgError("La cria no ha sido clasificada");return;
+            default: Rut.msgExito();
         }
+    }
+
+    public viewPrincipal getViewP(){
+        return viewP;
     }
 
     public DialogClasificadas getClasificadas(){return  clasificadas;}

@@ -5,13 +5,28 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 			"$columnSpecs": "0, 0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 10
 			"$vGap": 8
 			"$alignTop": true
 		} ) {
 			name: "this"
 			"font": &Font0 new java.awt.Font( "Arial Rounded MT Bold", 0, 14 )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_home"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\home.png" )
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"borderPainted": false
+				"contentAreaFilled": false
+				"focusable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridwidth": 3
+				"hAlign": 0
+				"ipady": 50
+			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "ID cría:"
@@ -39,6 +54,7 @@ new FormModel {
 				"font": #Font0
 				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\searchIcon.png" )
 				"preferredSize": new java.awt.Dimension( 35, 30 )
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -158,6 +174,7 @@ new FormModel {
 				name: "btn_sacrificar"
 				"text": "Sacrificar"
 				"font": #Font0
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -170,6 +187,7 @@ new FormModel {
 				name: "btn_procesar"
 				"text": "Procesar"
 				"font": #Font0
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -182,6 +200,7 @@ new FormModel {
 				name: "btn_clas"
 				"text": "Crias clasificadas"
 				"font": #Font0
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}

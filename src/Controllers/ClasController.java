@@ -1,8 +1,10 @@
 package Controllers;
 
 import Models.Modelo;
-import Support.Routines;
+import Support.Rut;
+import Views.MainFrame;
 import Views.viewClasificaciones;
+import Views.viewPrincipal;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -17,14 +19,12 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
 
     private Modelo model;
     private viewClasificaciones view;
-    private Routines rut;
     private Border original;
     private String[] columnas = {"ID Cria"};
 
     public ClasController(viewClasificaciones view, Modelo model){
         this.model = model;
         this.view = view;
-        rut = new Routines();
         hazEscuchadores();
         original = view.getTf_idCria().getBorder();
     }
@@ -35,6 +35,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
         view.getBtn_clasificar().addActionListener(this);
         view.getBtn_sinClas().addActionListener(this);
         view.getDialog().getBtn_actualizar().addActionListener(this);
+        view.getBtn_home().addActionListener(this);
 
         view.getTf_idCria().addKeyListener(this);
 
@@ -49,7 +50,6 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
     @Override
     public void actionPerformed(ActionEvent evt) {
         JButton btn = (JButton) evt.getSource();
-
         if(btn == view.getDialog().getBtn_actualizar()){
             onClicSinClas();
             return;
@@ -65,6 +65,10 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
         }
         if (btn == view.getBtn_sinClas()) {
             onClicSinClas();
+            return;
+        }
+        if (btn == view.getBtn_home()){
+            Rut.goPanel(viewPrincipal.parent,view.getViewP());
             return;
         }
 
@@ -125,7 +129,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
                 view.getTf_salud().setText(cria_salud);
             }
             else
-                rut.msgError("Este ID no ha sido registrado");
+                Rut.msgError("Este ID no ha sido registrado");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -136,7 +140,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
 
     private boolean checkComboColor(){
         if(view.getCb_colorMusc().getSelectedIndex() == 0){
-            rut.msgError("Seleccione una opcion válida en color de músculo");
+            Rut.msgError("Seleccione una opcion válida en color de músculo");
             return false;
         }
         return true;
@@ -161,7 +165,7 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
     @Override
     public void focusLost(FocusEvent evt) {
         JTextField aux = (JTextField)evt.getSource();
-        rut.borderCheck(aux,original);
+        Rut.borderCheck(aux,original);
     }
 
     @Override
@@ -174,12 +178,12 @@ public class ClasController implements ActionListener, FocusListener, ItemListen
     public void keyTyped(KeyEvent evt) {
         JTextField aux =(JTextField) evt.getSource();
         if(aux == view.getTf_idCria()) {
-            rut.soundAlert(evt, aux, 10);
-            rut.onlyNumbers(evt,aux);
+            Rut.soundAlert(evt, aux, 10);
+            Rut.onlyNumbers(evt,aux);
         }
         else{
-            rut.soundAlert(evt,aux,5);
-            rut.onlyNumbers(evt,aux);
+            Rut.soundAlert(evt,aux,5);
+            Rut.onlyNumbers(evt,aux);
         }
     }
 

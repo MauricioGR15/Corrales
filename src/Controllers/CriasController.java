@@ -1,15 +1,13 @@
 package Controllers;
 
-import Modals.DialogCrias;
-import Support.Routines;
+import Support.Rut;
 import Models.Modelo;
 import Views.viewCrias;
-import com.github.lgooddatepicker.components.DatePickerSettings;
+import Views.viewPrincipal;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +16,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
 
     private Modelo model;
     private viewCrias view;
-    private  Routines rut;
+    private Rut rut;
     private final String columnas[] = {"ID Cria","Llegada","Salud","No. Corral"};
     private Border original;
     private boolean health = true;
@@ -26,7 +24,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
     public CriasController(viewCrias view, Modelo model){
         this.model = model;
         this.view = view;
-        rut = new Routines();
+        rut = new Rut();
         hazEscuchadores();
         llenarCorrales();
         llenarDietas();
@@ -35,6 +33,7 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
 
     public void hazEscuchadores(){
         view.getBtn_registrarCrias().addActionListener(this);
+        view.getBtn_home().addActionListener(this);
         view.getBtn_consultar().addActionListener(this);
         view.getDialogCrias().getBtn_actualizar().addActionListener(this);
 
@@ -85,6 +84,10 @@ public class CriasController implements ActionListener, FocusListener, ItemListe
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+
+        if(evt.getSource() == view.getBtn_home()){
+            Rut.goPanel(viewPrincipal.parent, view.getViewP());
+        }
 
         if(evt.getSource() == view.getDialogCrias().getBtn_actualizar()){
             onClicConsultar();

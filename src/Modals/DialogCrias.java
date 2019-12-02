@@ -4,15 +4,8 @@
 
 package Modals;
 
-import Support.Routines;
-
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.*;
-import javax.swing.RowSorter.SortKey;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  * @author unknown

@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "175, 166, 40"
+			"$columnSpecs": "161, 73, 40"
 			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"
 			"$hGap": 8
 			"$vGap": 10
@@ -12,6 +12,21 @@ new FormModel {
 		} ) {
 			name: "this"
 			"font": &Font0 new java.awt.Font( "Arial Rounded MT Bold", 0, 14 )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_home"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\home.png" )
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"borderPainted": false
+				"contentAreaFilled": false
+				"focusable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridwidth": 3
+				"hAlign": 0
+				"ipady": 50
+			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Ingrese el ID de una cria para clasificarla"
@@ -89,6 +104,7 @@ new FormModel {
 				"font": #Font0
 				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\searchIcon.png" )
 				"preferredSize": new java.awt.Dimension( 35, 30 )
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
@@ -214,27 +230,31 @@ new FormModel {
 				name: "btn_sinClas"
 				"text": "Crias sin clasificar"
 				"font": #Font0
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridy": 11
+				"hAlign": 0
+				"gridwidth": 3
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_clasificar"
 				"text": "Clasificar"
 				"font": #Font0
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 11
-				"hAlign": 2
-				"gridx": 1
+				"gridy": 12
+				"hAlign": 0
+				"gridwidth": 3
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 55, 25 )
-			"size": new java.awt.Dimension( 540, 435 )
+			"location": new java.awt.Point( 20, 0 )
+			"size": new java.awt.Dimension( 635, 500 )
 		} )
 	}
 }

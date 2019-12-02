@@ -1,8 +1,10 @@
 package Controllers;
 
-import Support.Routines;
+import Support.Rut;
 import Models.Modelo;
 import Views.viewCorrales;
+import Views.viewPrincipal;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
@@ -14,14 +16,14 @@ public class CorralController implements ActionListener, FocusListener, ItemList
 
     private viewCorrales view;
     private Modelo model;
-    private Routines rut;
+    private Rut rut;
     private Border original;
     private final String columnas [] = {"No Corral", "Tipo"};
 
     public CorralController(viewCorrales view, Modelo model){
         this.view = view;
         this.model = model;
-        rut = new Routines();
+        rut = new Rut();
         hazEscuchadores();
         llenarTabla();
         original = view.getTf_noCorral().getBorder();
@@ -31,6 +33,7 @@ public class CorralController implements ActionListener, FocusListener, ItemList
         view.getTf_noCorral().addFocusListener(this);
         view.getCb_type().addItemListener(this);
         view.getBtn_regCorral().addActionListener(this);
+        view.getBtn_home().addActionListener(this);
 
         view.getTf_noCorral().addKeyListener(this);
     }
@@ -52,6 +55,10 @@ public class CorralController implements ActionListener, FocusListener, ItemList
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+
+        if(evt.getSource() == view.getBtn_home()){
+            Rut.goPanel(viewPrincipal.parent, view.getViewP());
+        }
 
         if(view.getTf_noCorral().getText().isEmpty() ){
             rut.msgError("Hay campos vacíos");

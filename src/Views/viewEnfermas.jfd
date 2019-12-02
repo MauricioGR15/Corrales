@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 0, 0, 0, 0"
+			"$columnSpecs": "0"
 			"$rowSpecs": "0, 0, 0, 0"
 			"$hGap": 5
 			"$vGap": 5
@@ -12,12 +12,27 @@ new FormModel {
 		} ) {
 			name: "this"
 			"preferredSize": new java.awt.Dimension( 477, 400 )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btn_home"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\home.png" )
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"borderPainted": false
+				"contentAreaFilled": false
+				"focusable": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"hAlign": 0
+				"ipady": 50
+			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "Crias enfermas"
-				"font": new java.awt.Font( "Century Gothic", 1, 12 )
+				"text": "Grasa de cobertura 2"
+				"font": new java.awt.Font( "Arial Rounded MT Bold", 1, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridwidth": 3
+				"gridy": 1
+				"hAlign": 0
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane"
@@ -29,27 +44,30 @@ new FormModel {
 					name: "t_enfermas"
 					"minimumSize": new java.awt.Dimension( 150, 150 )
 					"preferredSize": new java.awt.Dimension( 300, 300 )
-					"font": new java.awt.Font( "Century Gothic", 0, 12 )
+					"font": new java.awt.Font( "Arial Rounded MT Bold", 0, 14 )
 					auxiliary() {
 						"JavaCodeGenerator.variableGetter": true
 					}
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 1
-				"gridwidth": 4
+				"gridy": 2
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btn_actualizar"
-				"text": "Actualizar"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Git\\Corrales\\Imgs\\reloadIcon.png" )
+				"preferredSize": new java.awt.Dimension( 35, 30 )
+				"minimumSize": new java.awt.Dimension( 35, 31 )
+				"focusable": false
 				auxiliary() {
 					"JavaCodeGenerator.variableGetter": true
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridy": 2
+				"gridy": 3
+				"hAlign": 0
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 140, 40 )
-			"size": new java.awt.Dimension( 500, 395 )
+			"location": new java.awt.Point( 140, 20 )
+			"size": new java.awt.Dimension( 500, 430 )
 		} )
 	}
 }

@@ -1,7 +1,8 @@
 package Controllers;
 
 import Models.Modelo;
-import Support.Routines;
+import Support.Rut;
+import Views.viewPrincipal;
 import Views.viewProcesar;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,13 +16,13 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
     private String[] columnas = {"ID Cria","Llegada","Grasa cob","Salud"};
     private Modelo model;
     private viewProcesar view;
-    private Routines rut;
+    private Rut rut;
     private Border original;
 
     public ProcesarController(viewProcesar view, Modelo model){
         this.model = model;
         this.view = view;
-        rut = new Routines();
+        rut = new Rut();
         hazEscuchadores();
         original = view.getTf_idCria().getBorder();
     }
@@ -32,9 +33,11 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
 
         view.getBtn_Buscar().addActionListener(this);
         view.getBtn_procesar().addActionListener(this);
+        view.getBtn_sacrificar().addActionListener(this);
         view.getBtn_clas().addActionListener(this);
         view.getBtn_clas().addActionListener(this);
         view.getClasificadas().getBtn_actualizar().addActionListener(this);
+        view.getBtn_home().addActionListener(this);
     }
 
 
@@ -42,6 +45,10 @@ public class ProcesarController implements ActionListener, KeyListener, FocusLis
     public void actionPerformed(ActionEvent evt) {
 
         JButton button = (JButton)evt.getSource();
+
+        if(button == view.getBtn_home()){
+            Rut.goPanel(viewPrincipal.parent, view.getViewP());
+        }
 
         if(button == view.getClasificadas().getBtn_actualizar()){
             onClicClasificadas();
